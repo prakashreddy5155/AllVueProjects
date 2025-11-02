@@ -4,7 +4,7 @@
     <div class="cont">
 
       <div class="counter">
-        {{counter}}
+        {{$store.state.counter}}
       </div>
 
       <div class="buttons">
@@ -19,21 +19,15 @@
   <script>
   export default {
     name: 'App',
-    data() 
-    {
-      return { 
-        counter: 2
-      }
-    },
     methods: {
 
       increaseCount()
       {
-        this.counter++;
+        this.$store.state.counter++;
       },
       decreaseCount()
       {
-        this.counter--;
+        this.$store.state.counter--;
       }
     }
   }
