@@ -3,7 +3,7 @@
 
     <div class="cont">
 
-      <div class="counter">
+      <div class="counter" :style="{color:$store.state.colorCode}">
         {{$store.state.counter}}
       </div>
 
@@ -13,12 +13,29 @@
         <button @click="$store.commit('increaseCount')">+</button>
 
       </div>
+
+      <div class="input"> 
+        <!-- <input type="text" placeholder="Enter color code:" v-model="$store.state.colorCode"> This v-model works but we should not do like that -->
+         <input type="text" placeholder="Enter color code:" v-model="colorChange"  >
+      </div>
     </div>
   </template>
 
   <script>
   export default {
     name: 'App',
+    computed: {
+
+      colorChange: {
+        get() {
+          return this.$store.state.colorCode;
+        },
+        set(newValue) {
+          console.log(newValue);
+          this.$store.commit('colorChangeMutation',newValue);
+        }
+      }
+    }
   }
   </script>
 
