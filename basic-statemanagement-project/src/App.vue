@@ -7,10 +7,15 @@
         {{$store.state.counter}}
       </div>
 
+      <div>
+        {{$store.state.counter}}
+        <sup>2</sup> = {{$store.state.counter * $store.state.counter}}
+      </div>
+
       <div class="buttons">
 
-        <button @click="$store.commit('decreaseCount')">-</button>
-        <button @click="$store.commit('increaseCount')">+</button>
+        <button @click="$store.dispatch('decreaseCount')">-</button>
+        <button @click="$store.dispatch('increaseCount')">+</button>
 
       </div>
 
@@ -32,7 +37,7 @@
         },
         set(newValue) {
           console.log(newValue);
-          this.$store.commit('colorChangeMutation',newValue);
+          this.$store.dispatch('colorChange',newValue);
         }
       }
     }

@@ -7,15 +7,15 @@ state: {
  colorCode:'red'
 },
 mutations: {
-    increaseCount(state)
+    increaseCount(state,randomVal)
     {
-    state.counter++;
+    state.counter += randomVal;
     },
-    decreaseCount(state)
+    decreaseCount(state,randomVal)
     {
-    state.counter--;
+    state.counter -= randomVal;
     },
-    colorChangeMutation(state,newValue)
+    colorChange(state,newValue)
     {
         state.colorCode = newValue;
     }
@@ -23,7 +23,25 @@ mutations: {
 },
 actions:{
 
-    
+    // making an api call to retrieve a random number and add and substract that Random Number to the current counter.
+
+    async increaseCount({commit})
+    {
+        const response = await fetch('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new');
+        const randomVal = await response.json();
+        commit('increaseCount',randomVal);
+    },
+
+    async decreaseCount({commit})
+    {
+        const response = await fetch('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new');
+        const randomVal = await response.json();
+        commit('decreaseCount',randomVal);
+    },
+    colorChange({commit},newValue)
+    {
+        commit('colorChange',newValue);
+    }
 
 },
 getters:{
