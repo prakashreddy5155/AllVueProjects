@@ -7,7 +7,6 @@ state: {
  colorCode:'red'
 },
 mutations: {
-
     increaseCount(state)
     {
     state.counter++;
@@ -23,6 +22,8 @@ mutations: {
 
 },
 actions:{
+
+    
 
 },
 getters:{
