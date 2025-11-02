@@ -7,6 +7,15 @@ state: {
 },
 mutations: {
 
+    increaseCount(state)
+    {
+    state.counter++;
+    },
+    decreaseCount(state)
+    {
+    state.counter--;
+    }
+
 },
 actions:{
 

@@ -9,8 +9,8 @@
 
       <div class="buttons">
 
-        <button @click="decreaseCount">-</button>
-        <button @click="increaseCount">+</button>
+        <button @click="$store.commit('decreaseCount')">-</button>
+        <button @click="$store.commit('increaseCount')">+</button>
 
       </div>
     </div>
@@ -19,17 +19,6 @@
   <script>
   export default {
     name: 'App',
-    methods: {
-
-      increaseCount()
-      {
-        this.$store.state.counter++;
-      },
-      decreaseCount()
-      {
-        this.$store.state.counter--;
-      }
-    }
   }
   </script>
 
