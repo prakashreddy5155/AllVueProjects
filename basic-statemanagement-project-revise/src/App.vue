@@ -2,7 +2,7 @@
   <img alt="Vue logo" src="./assets/logo.png">
 
   <div class="counter">
-    {{ counter }}
+    {{ $store.state.counter }}
   </div>
 
   <div class="buttons">
@@ -16,23 +16,16 @@
 <script>
 export default {
 name: 'App',
-data() 
-{
-  return {
-    counter : 0 
-  }
-},
   methods: { 
     decreaseCounter()
     {
-      this.counter--;
+      this.$store.state.counter--;
     },
 
     increaseCounter()
     {
-      this.counter++;
+      this.$store.state.counter++;
     }
-
   }
 }
 </script>
