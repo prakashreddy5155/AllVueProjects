@@ -2,14 +2,14 @@
   <img alt="Vue logo" src="./assets/logo.png">
   
   <div class="counter">
-    {{ counter }}
+    {{ $store.state.counter }}
   </div>
 
   <div class="buttons">
-    <button  @click="decreaseCounter">
+    <button  @click="$store.commit('decreaseCounter')">
       -
     </button>
-    <button @click="increaseCounter">
+    <button @click="$store.commit('increaseCounter')">
       +
     </button>
   </div>
@@ -20,19 +20,6 @@
 
 export default {
   name: 'App',
-  data() {
-    return {counter: 0};
-  },
-  methods: {
-    increaseCounter()
-    {
-      this.counter++;
-    },
-    decreaseCounter()
-    {
-      this.counter--;
-    }
-  }
 }
 </script>
 
