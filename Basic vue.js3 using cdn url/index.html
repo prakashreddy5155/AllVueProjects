@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Basic Vue.js using CDN</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+        <h1>
+        {{returnMessage()}}
+        </h1>   
+        <p>
+             {{employee.name}}  is {{employee.age}} years old
+        </p>    
+        <p>lucky number is {{luckyNumber}}</p>
+        <p>Lucky Numbers are {{luckyNumbers}}</p>
+
+        <p>
+            Lucky Number is {{evaluateEvenOrOdd()}}
+        </p>
+        <p>{{updateLuckyNumber()}}</p>
+    </div>
+   
+
+</body>
+
+
+<script>
+    const {createApp,ref} = Vue;
+
+    createApp({
+        setup()
+        {
+            const message = "Hi, Welcome to Vue.js!";
+            let luckyNumber = ref(10);
+            const luckyNumbers = [10,20,30,40];
+            const employee = {
+                name : "Om Sai Prakash",
+                age : 23,
+                height: 5.85
+            };
+            function updateLuckyNumber()
+            {
+                setTimeout(()=> {
+                    luckyNumber.value = 501
+                },2000);
+            }
+            
+            function returnMessage()
+            {
+                return (this.message).toUpperCase();
+            }
+            
+            function evaluateEvenOrOdd()
+            {
+                return luckyNumber.value%2===0 ? "Even" : "Odd";
+            }
+            return {
+                message,
+                employee,
+                updateLuckyNumber,
+                luckyNumbers,
+                luckyNumber,
+                returnMessage,
+                evaluateEvenOrOdd
+
+            };
+
+            
+            
+        }
+    }).mount("#app");
+</script>
+</html>
