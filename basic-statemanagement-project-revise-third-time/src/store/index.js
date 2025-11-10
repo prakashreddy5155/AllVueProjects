@@ -22,11 +22,17 @@ export default createStore({
       async makeAnAPICallToRetrieveRandomNumber() 
       {
 
+        try 
+        {
         const randomNumberObj = await fetch('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new');
 
         const randomNum = await randomNumberObj.json();
 
         return Number(randomNum);
+        }
+        catch(e) {
+          console.log("Something went wrong while generating random Number!");
+        }
       },
 
       async generateRandomNumber({commit,dispatch},increaseOrDecrease)
