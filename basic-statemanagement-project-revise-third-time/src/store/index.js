@@ -7,17 +7,40 @@ export default createStore({
     },
     mutations:{
 
-      increaseCounter(state)
+      increaseCounter(state,randomVal)
       {
-        state.counter++;
+        state.counter += randomVal;
       },
-      decreaseCounter(state)
+      decreaseCounter(state,randomVal)
       {
-        state.counter--;
+        state.counter -= randomVal;
       }
-
     },
     actions:{
+
+
+      async makeAnAPICallToRetrieveRandomNumber() 
+      {
+
+        const randomNumberObj = await fetch('https://www.random.org/integers/?num=1&min=1&max=6&col=1&base=10&format=plain&rnd=new');
+
+        const randomNum = await randomNumberObj.json();
+
+        return Number(randomNum);
+      },
+
+      async generateRandomNumber({commit,dispatch},increaseOrDecrease)
+      {
+        const randomNum  = await dispatch('makeAnAPICallToRetrieveRandomNumber');
+        if(increaseOrDecrease.toLowerCase() === "increase")
+        {
+          commit('increaseCounter',randomNum);
+        }
+        else 
+        {
+          commit('decreaseCounter',randomNum);
+        }
+      }
 
     },
     getters:{

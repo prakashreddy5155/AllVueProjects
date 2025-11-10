@@ -6,10 +6,10 @@
   </div>
 
   <div class="buttons">
-    <button  @click="$store.commit('decreaseCounter')">
+    <button  @click="decreaseCounter">
       -
     </button>
-    <button @click="$store.commit('increaseCounter')">
+    <button @click="increaseCounter">
       +
     </button>
   </div>
@@ -20,9 +20,18 @@
 
 export default {
   name: 'App',
+  methods: {
+    increaseCounter() 
+    {
+      this.$store.dispatch('generateRandomNumber',"INCREASE");
+    },
+    decreaseCounter() 
+    {
+      this.$store.dispatch('generateRandomNumber',"DECREASE");
+    }
+  }
 }
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
