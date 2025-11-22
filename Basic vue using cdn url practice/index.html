@@ -23,6 +23,14 @@
         <div class="result">
             {{result}}
         </div>
+        <div>
+            Lucky Number is: {{luckyNumber}} 
+        </br>
+            employee is: {{employee}}
+        </br>
+        company is :{{companyDetails}}
+        </div>
+        {{updateLuckyNumber()}}
     </div>
 
 
@@ -30,7 +38,7 @@
 
 <script>
 
-    const {createApp} = Vue;
+    const {createApp,ref,reactive} = Vue;
     
     createApp({
         
@@ -38,6 +46,17 @@
         {
             const message = "hi vue !";
             let result = 10;
+            let luckyNumber = ref(6);
+            let employee = ref({
+                name: 'sai',
+                age: 23,
+                height:5.85
+            })
+            let companyDetails = reactive({
+                company: "Accenture solutions pvt ltd",
+                isForeign: true,
+                isWealthy: true
+            })
 
             function returnData()
             {
@@ -47,14 +66,29 @@
             {
                 return message.toUpperCase();
             }
+            function updateLuckyNumber()
+            {
+                setTimeout(()=>{
+                    luckyNumber.value = Math.ceil((Math.random()*10));
+                    employee.value.age = 24;
+                    employee.value.name= "Om Sai Prakash"
+                    companyDetails.company="JusPay";
+                    console.log(luckyNumber.value);
+
+                },2000);
+                
+            }
+            
             return {
                 returnMessage,
                 result,
-                returnData
+                returnData,
+                updateLuckyNumber,
+                luckyNumber,
+                employee,
+                companyDetails
             };
         }
-
-
     }).mount("#app");
 </script>
 </html>
