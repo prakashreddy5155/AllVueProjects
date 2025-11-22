@@ -1,10 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
 
-
-
   <div class="displayCont">
-    {{ this.$data.counter }}
+    {{ $store.state.counter }}
   </div>
 
   <div class="buttonsCont">
@@ -31,11 +29,11 @@ export default {
   methods: {
     increaseCounter()
     {
-      this.$data.counter++;
+      this.$store.state.counter++;
     },
     decreaseCounter()
     {
-      this.$data.counter--;
+      this.$store.state.counter--;
     }
   }
   
