@@ -6,7 +6,14 @@ export default createStore({
     counter: 10
     },
     mutations:{
-
+        increaseCounter(state)
+        {
+            state.counter++;
+        },
+        decreaseCounter(state)
+        {
+            state.counter--;
+        }
     },
     actions:{
 

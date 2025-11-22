@@ -19,21 +19,14 @@
 <script>
 export default {
   name: 'App',
-
-  data() 
-  {
-    return {
-      counter: 0
-    }
-  },
   methods: {
     increaseCounter()
     {
-      this.$store.state.counter++;
+      this.$store.commit('increaseCounter');
     },
     decreaseCounter()
     {
-      this.$store.state.counter--;
+      this.$store.commit('decreaseCounter');
     }
   }
   
