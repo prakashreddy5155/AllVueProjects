@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDN vue.js practice</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+
+    <div id="app">
+
+        {{returnMessage()}}
+        {{returnData()}}
+        <label for="i1">
+            <input type="number" id="i1" class="val1">
+        </label>
+        <label for="i2">
+            <input type="number" id="i2" class="val2">
+        </label>
+        
+
+        <div class="result">
+            {{result}}
+        </div>
+    </div>
+
+
+
+</body>
+
+<script>
+
+    const {createApp} = Vue;
+    
+    createApp({
+        
+        setup()
+        {
+            const message = "hi vue !";
+            let result = 10;
+
+            function returnData()
+            {
+                return "I am doing good !, But need to focus more !";
+            }
+            function returnMessage()
+            {
+                return message.toUpperCase();
+            }
+            return {
+                returnMessage,
+                result,
+                returnData
+            };
+        }
+
+
+    }).mount("#app");
+</script>
+</html>
