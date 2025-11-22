@@ -31,6 +31,33 @@
         company is :{{companyDetails}}
         </div>
         {{updateLuckyNumber()}}
+
+        <div v-html="returnHTML()" >
+        </div>
+
+        <div v-once>
+            Lucky Number Wont be rendered again here {{luckyNumber}}
+        </div>
+
+       
+        <a :href="websiteLink"> My Website</a>
+
+        Through function<a :href="getWebsiteLink()">Through Function</a>
+
+
+        <p v-show="companyDetails.isCorporateCardEnabled">The limit in the corporate card is {{companyDetails.limit}} </p>
+
+
+        <p v-if="companyDetails.salary >25000" > 
+                You're eligible for the corporate card with {{companyDetails.limit}}
+        </p>
+        <h2 v-else-if="companyDetails.salary > 600000"> You're elgible for the elite Corporate card</h2>
+
+        <h3 v-else>
+
+            You're not eligible for any card.
+        </h3>
+        
     </div>
 
 
@@ -55,9 +82,20 @@
             let companyDetails = reactive({
                 company: "Accenture solutions pvt ltd",
                 isForeign: true,
-                isWealthy: true
-            })
+                isWealthy: true,
+                limit:100000,
+                isCorporateCardEnabled:false,
+                salary:100000
+            });
+            
 
+
+            const websiteLink = "https://www.netninjas.com/";
+
+            function getWebsiteLink ()
+            {
+                return websiteLink;
+            }
             function returnData()
             {
                 return "I am doing good !, But need to focus more !";
@@ -66,7 +104,7 @@
             {
                 return message.toUpperCase();
             }
-            
+
             function updateLuckyNumber()
             {
                 setTimeout(()=>{
@@ -79,6 +117,9 @@
                 },2000);
                 
             }
+            function returnHTML() {
+                return `<h1>This is a heading</h1>`;
+            }
             
             return {
                 returnMessage,
@@ -87,7 +128,10 @@
                 updateLuckyNumber,
                 luckyNumber,
                 employee,
-                companyDetails
+                companyDetails,
+                returnHTML,
+                websiteLink,
+                getWebsiteLink
             };
         }
     }).mount("#app");

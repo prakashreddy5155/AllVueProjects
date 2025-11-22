@@ -1,0 +1,1 @@
+###[personal-1.0] - used v-bind,v-html,v-once, v-show to create the webpage 
