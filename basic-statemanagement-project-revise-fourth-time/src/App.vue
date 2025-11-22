@@ -22,14 +22,13 @@ export default {
   methods: {
     increaseCounter()
     {
-      this.$store.commit('increaseCounter');
+      this.$store.dispatch('APICallAndNavigateToAppropriate',"increase");
     },
     decreaseCounter()
     {
-      this.$store.commit('decreaseCounter');
+      this.$store.dispatch('APICallAndNavigateToAppropriate',"decrease");
     }
   }
-  
 }
 </script>
 
