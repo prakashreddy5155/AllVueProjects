@@ -25,6 +25,8 @@
         </button>
         </div>
 
+        Enter First Name: 
+        <input type="text" v-model="firstName">
     </div>
 </body>
 
@@ -36,18 +38,24 @@
         setup()
         {
             let counter = ref(0);
-            let firstName = "om sai ";
-            let lastName = "N";
+            let firstName = ref("Om Sai");
+            let lastName = ref("N");
 
 
-             getFullName = computed(() => {
+             const getFullName = computed((prev) => {
+                    if(prev === 'Om Sai Prakash N')
+                    {
+                        console.log("matched ... ");
+                        console.log("Doing operation");
+                    }
                     console.log("getFullName called");
-                    return firstName + " "+ lastName;
+                    return firstName.value + " "+ lastName.value;
                 });
 
             return {
                 counter,
                 getFullName,
+                firstName,
             };
         }
     }).mount("#app");

@@ -51,3 +51,5 @@
 
 ### how the methods inside the computed properties work
 #### if you create an arrow function inside a computed property then that will only be re-rendered when the dependent properties inside that computed property method would change, else that would not change and stays the same. Everytime it checks whether those dependent things are changed or not and based on that it re-renders.
+
+### we can check the previous data of the computed property by doing computed((prev)=>{ prev holds the computed property previous  value. through that previous value we can perform some operations if we want.})
