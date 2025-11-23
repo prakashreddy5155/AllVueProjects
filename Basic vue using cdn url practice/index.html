@@ -11,10 +11,13 @@
     <div id="app"> 
 
 
-        <!-- vue.js way of writing style but with keeping the properties of css same as it should be instead of making them camelCase-->
-        <div v-bind:style="{'background-color': 'aqua','color':'white','font-size':fontSizeTemp + 'px'}">
-            HelloWorld !
+        <div>
+
+            <span class="standardColorOfBlackAndFontSize10px" v-bind:class="{backgroundBlueAndMargin10px:true,colorOfWhiteAndFontSize20px:false}">
+                I am inevitable
+            </span>
         </div>
+
 
     </div>
 
@@ -40,4 +43,22 @@
         }
     }).mount("#app");
 </script>
+<style>
+
+    .standardColorOfBlackAndFontSize10px
+    {
+        color:black;
+        font-size:10px;
+    }
+    .backgroundBlueAndMargin10px 
+    {
+        background-color: blue;
+        padding:10px
+    }
+    .colorOfWhiteAndFontSize20px 
+    {
+        color:white;
+        font-size:20px;
+    }
+</style>
 </html>

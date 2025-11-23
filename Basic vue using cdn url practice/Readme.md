@@ -24,3 +24,6 @@
 
 ### using v-bind to add styling to the css
 #### inorder to use that we need to use v-bind:style= or :style= which is a shorthand, we can either use camelCase javascript way or standard css way but with keeping everything in single quotes both key and value of the css
+
+### using v-bind to dynamically assign or not assign 
+#### we can do that by making v-bind:class={cssStylingClassNamePresentInStyleTag: true or false}

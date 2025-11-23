@@ -5,3 +5,5 @@
 ### [personal-1.2] - learnt v-for :key and code cleanup
 
 ### [personal-1.3] - dynamically adding css style using v-bind and javascript
+
+### [personal-1.4] - using v-bind to dynamically assign or not assign the classes styles.
