@@ -9,3 +9,12 @@
 
 ### v-else 
 #### used as a chain with v-if or v-else-if
+
+### v-html
+#### this is helpful to render the javascript html string, that renders as html when we use v-html="javascriptProperty"
+
+### structure of v-for
+#### v-for="(value,key,index) in companyDetails
+
+### when to add v-for :key attribute
+#### we need to add v-for  :key attribute when we want all of other things along with the actual li to be shuffled along properly. because vue treats like this, lets say if we dont add :key and dont provide the unique attribute, then vue treats since only the data has changed due to sorting the array I dont have to explicitly change everything because there are same number of <li> and ul and no change to new things, so its better to just change the text for improving performance, but when we add :key="uniquePropery" then vue understands that we can't just change the data which can lead to discrepencies so it actually moves the li tags accordingly, so the input fields attached to the same <li> persists with it.

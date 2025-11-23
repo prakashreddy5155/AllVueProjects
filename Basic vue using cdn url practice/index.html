@@ -9,55 +9,18 @@
 <body>
 
     <div id="app">
+    
+        <ul>
+            <li v-for="(value,key,index) in companyDetails" :key="value.id">
+           {{index}} --- {{key}} ::: {{value}}
 
-        {{returnMessage()}}
-        {{returnData()}}
-        <label for="i1">
-            <input type="number" id="i1" class="val1">
-        </label>
-        <label for="i2">
-            <input type="number" id="i2" class="val2">
-        </label>
+            <input type="text">
+            </li>
+        </ul>
         
-
-        <div class="result">
-            {{result}}
-        </div>
         <div>
-            Lucky Number is: {{luckyNumber}} 
-        </br>
-            employee is: {{employee}}
-        </br>
-        company is :{{companyDetails}}
+            {{shuffleCompanyDetails()}}
         </div>
-        {{updateLuckyNumber()}}
-
-        <div v-html="returnHTML()" >
-        </div>
-
-        <div v-once>
-            Lucky Number Wont be rendered again here {{luckyNumber}}
-        </div>
-
-       
-        <a :href="websiteLink"> My Website</a>
-
-        Through function<a :href="getWebsiteLink()">Through Function</a>
-
-
-        <p v-show="companyDetails.isCorporateCardEnabled">The limit in the corporate card is {{companyDetails.limit}} </p>
-
-
-        <p v-if="companyDetails.salary >25000" > 
-                You're eligible for the corporate card with {{companyDetails.limit}}
-        </p>
-        <h2 v-else-if="companyDetails.salary > 600000"> You're elgible for the elite Corporate card</h2>
-
-        <h3 v-else>
-
-            You're not eligible for any card.
-        </h3>
-        
     </div>
 
 
@@ -65,73 +28,33 @@
 
 <script>
 
-    const {createApp,ref,reactive} = Vue;
+    const {createApp,reactive} = Vue;
     
     createApp({
-        
+
         setup()
         {
-            const message = "hi vue !";
-            let result = 10;
-            let luckyNumber = ref(6);
-            let employee = ref({
-                name: 'sai',
-                age: 23,
-                height:5.85
-            })
-            let companyDetails = reactive({
-                company: "Accenture solutions pvt ltd",
-                isForeign: true,
-                isWealthy: true,
-                limit:100000,
-                isCorporateCardEnabled:false,
-                salary:100000
-            });
+
+            let companyDetails = reactive([
+               { id: 1,company: "Accenture solutions pvt ltd"},
+                {id: 2,isForeign: true},
+                {id: 3,isWealthy: true},
+                {id: 4,limit:100000},
+                {id: 5,isCorporateCardEnabled:false},
+                {id: 6,salary:100000}
+            ]);
             
-
-
-            const websiteLink = "https://www.netninjas.com/";
-
-            function getWebsiteLink ()
+            function shuffleCompanyDetails()
             {
-                return websiteLink;
-            }
-            function returnData()
-            {
-                return "I am doing good !, But need to focus more !";
-            }
-            function returnMessage()
-            {
-                return message.toUpperCase();
+                setTimeout(()=> 
+                {
+                companyDetails.sort(()=> Math.random() - 0.5);
+                },5000);
             }
 
-            function updateLuckyNumber()
-            {
-                setTimeout(()=>{
-                    luckyNumber.value = Math.ceil((Math.random()*10));
-                    employee.value.age = 24;
-                    employee.value.name= "Om Sai Prakash"
-                    companyDetails.company="JusPay";
-                    console.log(luckyNumber.value);
-
-                },2000);
-                
-            }
-            function returnHTML() {
-                return `<h1>This is a heading</h1>`;
-            }
-            
             return {
-                returnMessage,
-                result,
-                returnData,
-                updateLuckyNumber,
-                luckyNumber,
-                employee,
                 companyDetails,
-                returnHTML,
-                websiteLink,
-                getWebsiteLink
+                shuffleCompanyDetails
             };
         }
     }).mount("#app");
