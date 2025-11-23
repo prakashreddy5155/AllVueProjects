@@ -8,19 +8,8 @@
 </head>
 <body>
 
-    <div id="app">
-    
-        <ul>
-            <li v-for="(value,key,index) in companyDetails" :key="value.id">
-           {{index}} --- {{key}} ::: {{value}}
-
-            <input type="text">
-            </li>
-        </ul>
-        
-        <div>
-            {{shuffleCompanyDetails()}}
-        </div>
+    <div id="app"> 
+        HelloWorld !
     </div>
 
 
@@ -28,33 +17,14 @@
 
 <script>
 
-    const {createApp,reactive} = Vue;
+    const {createApp} = Vue;
     
     createApp({
 
         setup()
         {
 
-            let companyDetails = reactive([
-               { id: 1,company: "Accenture solutions pvt ltd"},
-                {id: 2,isForeign: true},
-                {id: 3,isWealthy: true},
-                {id: 4,limit:100000},
-                {id: 5,isCorporateCardEnabled:false},
-                {id: 6,salary:100000}
-            ]);
-            
-            function shuffleCompanyDetails()
-            {
-                setTimeout(()=> 
-                {
-                companyDetails.sort(()=> Math.random() - 0.5);
-                },5000);
-            }
-
             return {
-                companyDetails,
-                shuffleCompanyDetails
             };
         }
     }).mount("#app");
