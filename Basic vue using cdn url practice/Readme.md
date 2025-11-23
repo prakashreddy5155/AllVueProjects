@@ -45,3 +45,6 @@
 
 ###  model modifiers like trim, number, lazy
 #### v-model.trim is used for trimming the starting and trailing white spaces, v-model.number is used for converting that value into number typically does Number(input Data you provide), v-lazy is used for updating the content on that model only when it loses focus, usually it updates as soon as the value changes. 
+
+### creating the basic counter with normal way.
+#### using the normal way has some issues even if only the incremented value changes, but still the methods also runs because we are calling that method in the DOM, and due to which it also gets rendered, lets say this is a basic code where I am doing getFullName called, but if there is an api call or cpu intensive task is there, then this code would be pretty much inefficient, so that is why we should put the methods that we are actively rendering inside the computed properties because computed property will check what are the dependends of that method, and those will only re-run that method when those dependends change.

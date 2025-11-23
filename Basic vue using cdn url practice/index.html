@@ -9,19 +9,21 @@
 <body>
 
     <div id="app"> 
+        
+        <div>
+            {{counter}}
+        </div>
 
+        {{getFullName()}}
 
-        <!-- Model modifiers-->
-        Enter the name: 
-        <input type="text" v-model.trim="name" >
-        </br>
-        </br>
-        Enter the age:
-        <input type="number" v-model.lazy.number="age">  <!-- adding like this is perfectly valid in javascript , we can chain mutliple things like lazy, number, trim and many more and that works well.-->
-        </br>
-        <span>
-            {{name}} is {{age}} years old
-        </span>
+        <div>
+        <button v-on:click="counter++">
+            increment
+        </button>
+        <button v-on:click="counter--">
+            decrement
+        </button>
+        </div>
 
     </div>
 </body>
@@ -33,11 +35,19 @@
 
         setup()
         {
-            let name = ref("");
-            let age = ref();
+            let counter = ref(0);
+            let firstName = "om sai ";
+            let lastName = "N";
+
+
+            function getFullName() {
+                    console.log("getFullName called");
+                    return firstName + " "+ lastName;
+                };
+
             return {
-                name,
-                age
+                counter,
+                getFullName,
             };
         }
     }).mount("#app");
