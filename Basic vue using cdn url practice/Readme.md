@@ -21,3 +21,6 @@
 
 ### These v-for v-html v-bind v-show v-if v-else-if v-else 
 #### these are vue directives
+
+### using v-bind to add styling to the css
+#### inorder to use that we need to use v-bind:style= or :style= which is a shorthand, we can either use camelCase javascript way or standard css way but with keeping everything in single quotes both key and value of the css

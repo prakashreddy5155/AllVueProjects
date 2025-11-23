@@ -10,30 +10,12 @@
 
     <div id="app"> 
 
-        <!-- Typical html way of writing the style-->
-        <div style="background-color: aqua; color:white">
-            HelloWorld !
-        </div>
-
-        <!-- Vue.js way of writing style.-->
-        <div v-bind:style="{backgroundColor: 'aqua',color:'white'}">
-            HelloWorld !
-        </div>
 
         <!-- vue.js way of writing style but with keeping the properties of css same as it should be instead of making them camelCase-->
-        <div v-bind:style="{'background-color': 'aqua','color':'white'}">
+        <div v-bind:style="{'background-color': 'aqua','color':'white','font-size':fontSizeTemp + 'px'}">
             HelloWorld !
         </div>
 
-
-        <!-- Doing with the javascript object but with keeping css styling not with camelCase-->
-         <div v-bind:style="standardColorWithCamelCase">
-            HelloWorld !
-        </div>
-
-        <div v-bind:style="standardColorWithOutCamelCase">
-            HelloWorld !
-        </div>
     </div>
 
 
@@ -48,12 +30,12 @@
 
         setup()
         {
+            const fontSizeTemp = 60;
             const standardColorWithCamelCase = {backgroundColor:'aqua',color:'white'}
 
             const standardColorWithOutCamelCase = {'background-color':'aqua','color':'white'}
             return {
-                standardColorWithCamelCase,
-                standardColorWithOutCamelCase
+                fontSizeTemp
             };
         }
     }).mount("#app");
