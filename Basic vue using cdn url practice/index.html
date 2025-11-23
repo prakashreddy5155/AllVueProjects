@@ -10,18 +10,20 @@
 
     <div id="app"> 
 
+
+        <!-- Model modifiers-->
         Enter the name: 
-        <input type="text" v-model="name" >
+        <input type="text" v-model.trim="name" >
         </br>
         </br>
         Enter the age:
-        <input type="number" v-model="age">
+        <input type="number" v-model.lazy.number="age">  <!-- adding like this is perfectly valid in javascript , we can chain mutliple things like lazy, number, trim and many more and that works well.-->
         </br>
         <span>
             {{name}} is {{age}} years old
         </span>
 
-        </div>
+    </div>
 </body>
 
 <script>

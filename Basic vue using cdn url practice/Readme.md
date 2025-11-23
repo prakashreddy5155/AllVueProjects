@@ -42,3 +42,6 @@
 
 ### v-model 
 #### this is used for two way data binding, it means it modifies and shows the data in the dom instantly. v-model means when we update the data in the js then UI gets updated and when we update the data in the UI then js gets updated UI <----> JS but you must use ref or else it wont work.
+
+###  model modifiers like trim, number, lazy
+#### v-model.trim is used for trimming the starting and trailing white spaces, v-model.number is used for converting that value into number typically does Number(input Data you provide), v-lazy is used for updating the content on that model only when it loses focus, usually it updates as soon as the value changes. 

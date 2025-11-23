@@ -21,3 +21,5 @@
 ### [personal-2.0] - clean up
 
 ### [personal-2.1] - added two way data binding to the input fields using ref and v-model
+
+### [personal-2.2] - model modifiers like trim, number, lazy
