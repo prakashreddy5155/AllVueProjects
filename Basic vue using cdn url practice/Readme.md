@@ -27,3 +27,6 @@
 
 ### using v-bind to dynamically assign or not assign 
 #### we can do that by making v-bind:class={cssStylingClassNamePresentInStyleTag: true or false}
+
+### adding array of styles dynamically using v-bind:class=[something()? coloringObj: '',anotherStyleObj]
+#### This works like this, we usually create one object named const coloringObj = { styleClassName : true/false, styleClassName: true/false} and then we can add that coloringObj in the v-bind:class=[something()? coloringObj : '',anotherStyleObj]

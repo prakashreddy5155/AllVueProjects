@@ -17,7 +17,7 @@
         </div>
 
 
-        <div v-bind:class="isBackgroundBlueMarin10ColorWhiteAndFontSize20px() ? store : '' ">
+        <div v-bind:class="[isBackgroundBlueMarin10ColorWhiteAndFontSize20px() ? store : '',fontSizeIncreaseObj ]">
             Hi I am dynamic
         </div>
     </div>
@@ -42,14 +42,22 @@
 
             const store= {backgroundBlueAndPadding10px: true,colorOfWhiteAndFontSize20px:true};
 
+            const fontSizeIncreaseObj = {
+                fontMedium: true
+
+            }
             function isBackgroundBlueMarin10ColorWhiteAndFontSize20px()
             {
                 return true;
             }
+
+            
             return {
                 fontSizeTemp,
                 isBackgroundBlueMarin10ColorWhiteAndFontSize20px,
-                store
+                store,
+                standardColorWithOutCamelCase,
+                fontSizeIncreaseObj
             };
 
 
@@ -57,7 +65,11 @@
     }).mount("#app");
 </script>
 <style>
-
+    .fontMedium 
+    {
+        font-size:40px;
+        font-weight: bold;
+    }
     .standardColorOfBlackAndFontSize10px
     {
         color:black;
