@@ -24,4 +24,6 @@
 
 ### [personal-2.2] - model modifiers like trim, number, lazy
 
-### [personal-2.3] - creating the basic counter with normal way.
+### [personal-2.3] - creating the basic counter with normal way with out computed property due to change in the counter then it re-renders the template due to which the method also re-runs, in the next fix will upgrade that with computed
+
+### [personal-2.4] - created the basic counter with the computed property through which it will only be rendered when the properties of the computed property here in this case firstName and lastName has any changes.

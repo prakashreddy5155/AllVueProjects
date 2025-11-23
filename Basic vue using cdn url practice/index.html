@@ -14,7 +14,7 @@
             {{counter}}
         </div>
 
-        {{getFullName()}}
+        {{getFullName}}
 
         <div>
         <button v-on:click="counter++">
@@ -29,7 +29,7 @@
 </body>
 
 <script>
-    const {createApp,ref} = Vue;
+    const {createApp,ref,computed} = Vue;
     
     createApp({
 
@@ -40,10 +40,10 @@
             let lastName = "N";
 
 
-            function getFullName() {
+             getFullName = computed(() => {
                     console.log("getFullName called");
                     return firstName + " "+ lastName;
-                };
+                });
 
             return {
                 counter,
