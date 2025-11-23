@@ -19,3 +19,5 @@
 ### [personal-1.9] - new changes were related to key modifiers in vue
 
 ### [personal-2.0] - clean up
+
+### [personal-2.1] - added two way data binding to the input fields using ref and v-model
