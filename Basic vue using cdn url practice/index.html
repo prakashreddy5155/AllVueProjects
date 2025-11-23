@@ -9,20 +9,33 @@
 <body>
 
     <div id="app"> 
-
+        
+        Enter the name: 
+        <input type="text" v-model="name" >
+        </br>
+        </br>
+        Enter the age:
+        <input type="number" v-model="age">
+        </br>
+        <span>
+            {{name}} is {{age}} years old
+        </span>
         </div>
 </body>
 
 <script>
-    const {createApp} = Vue;
+    const {createApp,ref} = Vue;
     
     createApp({
 
         setup()
         {
+            let name = ref("");
+            let age = ref();
 
             return {
-
+                name,
+                age
             };
         }
     }).mount("#app");
