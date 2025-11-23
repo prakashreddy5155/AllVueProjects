@@ -10,23 +10,6 @@
 
     <div id="app"> 
 
-        Enter something and press anykey to trigger the method: 
-        <!-- This executes for every key click irrespective of any.-->
-        <input type="text" v-on:keyup="executeClicked()">
-
-    </br>
-        
-        Enter something and press enter to trigger the method
-        <!-- this works only for the enter-->
-        <input type="text" v-on:keyup.enter="executeEnterClicked()">
-
-       
-    </br>
-
-    Enter something and press ctrl + enter to trigger the method
-        <!-- this works only for the enter-->
-        <input type="text" v-on:keyup.enter.ctrl="executeCtrlEnterClicked()">
-
         </div>
 </body>
 
@@ -38,22 +21,8 @@
         setup()
         {
 
-            function executeClicked()
-            {
-                console.log("Clicked");
-            }
-            function executeEnterClicked()
-            {
-                console.log("Enter clicked");
-            }
-            function executeCtrlEnterClicked()
-            {
-                console.log("ctrl + Enter clicked");
-            }
             return {
-              executeClicked,
-              executeEnterClicked,
-              executeCtrlEnterClicked
+
             };
         }
     }).mount("#app");

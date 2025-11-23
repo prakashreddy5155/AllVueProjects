@@ -17,3 +17,5 @@
 ### [personal-1.8] - using event modifiers to modify the content the default behaviour and with example includes v-on:click.prevent, v-on:click.stop, v-on:click.once
 
 ### [personal-1.9] - new changes were related to key modifiers in vue
+
+### [personal-2.0] - clean up
