@@ -13,3 +13,5 @@
 ### [personal-1.6] - cleanUp of code for next setup.
 
 ### [personal-1.7] - basic button creation and triggering that binding that button with a function and passing parameters from that button clicked to the actual function that gets triggered when clicked.
+
+### [personal-1.7] - using event modifiers to modify the content the default behaviour and with example includes v-on:click.prevent, v-on:click.stop, v-on:click.once

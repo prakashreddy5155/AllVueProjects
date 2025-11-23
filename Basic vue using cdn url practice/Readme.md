@@ -33,3 +33,6 @@
 
 ### to add a click listener to the button
 #### to add a click listener to the button in vue, we need to add v-on:click="functionName" or v-on:click="functionName(argumentsToPassToFunction)" but this can be replaced with @click but not sure v-on: shorthand is @, need to check that.
+
+### <a href="www.google.com" v-on:click.prevent=doSomethingFunc()> Go To Google</a>
+#### the above code triggers the method instead of triggering to google.com which is the default behaviour, .prevent event modifier changes the default behaviour and adds custom functionality based on what we pass, here we are passing a method, v-on:click.stop is used to stop progagating to its parent because its parent may have different method, so if it propagates it executes the child method along with parent method leading to disturbing behaviour when they both have different method for each v-on:click

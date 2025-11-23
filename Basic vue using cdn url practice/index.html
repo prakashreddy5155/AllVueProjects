@@ -9,39 +9,71 @@
 <body>
 
     <div id="app"> 
-        
-        <button v-on:click="triggerMe()">Click me to trigger the triggerMe Method</button>
 
-        <button v-on:click="triggerAnotherByPassingArugments('Sai',true)">
-            click me to trigger a method which send arugments
-        </button>
-    </div>
+        <a href="www.google.com" v-on:click.prevent="callFunction()">
+            Go To Google
+        </a>
+        
+
+
+
+        <div class="cont" v-on:click="calledMe()">
+
+                hi
+
+                <!-- here .stop on the v-on:click directive is used for stop it from propagating from click to its parent which is div's its parent v-on:click but it only executes its own button method which gets triggered. -->
+                <button v-on:click.stop="triggerButtonMethod()">
+                    click me to trigger button method
+                </button>
+
+        </div>
+
+
+        <button v-on:click.once="triggerButtonMethod()">
+                   I will be triggered only once. !
+                </button>
+
+
+        </div>
 </body>
 
 <script>
-
     const {createApp} = Vue;
     
     createApp({
 
         setup()
         {
-            function triggerMe()
+
+            function callFunction()
             {
-                console.log("I am triggered");
+                console.log("Calling function");
             }
 
-            function triggerAnotherByPassingArugments(param1,param2)
-            {   
-                    console.log(param1);
-                    console.log(param2);
+            function calledMe()
+            {
+                console.log("Called me !");
+            }
+
+            function triggerButtonMethod()
+            {
+                console.log("triggerd button method");
             }
             return {
-             triggerMe,
-             triggerAnotherByPassingArugments
+                callFunction,
+                calledMe,
+                triggerButtonMethod
             };
         }
     }).mount("#app");
 </script>
-
+<style>
+    .cont 
+    {
+        height:50px;
+        width:300px;
+        background-color: aqua;
+        border:1px solid black;
+    }
+</style>
 </html>
