@@ -9,7 +9,12 @@
 <body>
 
     <div id="app"> 
+        
+        <button v-on:click="triggerMe()">Click me to trigger the triggerMe Method</button>
 
+        <button v-on:click="triggerAnotherByPassingArugments('Sai',true)">
+            click me to trigger a method which send arugments
+        </button>
     </div>
 </body>
 
@@ -21,8 +26,19 @@
 
         setup()
         {
+            function triggerMe()
+            {
+                console.log("I am triggered");
+            }
+
+            function triggerAnotherByPassingArugments(param1,param2)
+            {   
+                    console.log(param1);
+                    console.log(param2);
+            }
             return {
-             
+             triggerMe,
+             triggerAnotherByPassingArugments
             };
         }
     }).mount("#app");

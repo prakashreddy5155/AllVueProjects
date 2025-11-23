@@ -30,3 +30,6 @@
 
 ### adding array of styles dynamically using v-bind:class=[something()? coloringObj: '',anotherStyleObj]
 #### This works like this, we usually create one object named const coloringObj = { styleClassName : true/false, styleClassName: true/false} and then we can add that coloringObj in the v-bind:class=[something()? coloringObj : '',anotherStyleObj]
+
+### to add a click listener to the button
+#### to add a click listener to the button in vue, we need to add v-on:click="functionName" or v-on:click="functionName(argumentsToPassToFunction)" but this can be replaced with @click but not sure v-on: shorthand is @, need to check that.

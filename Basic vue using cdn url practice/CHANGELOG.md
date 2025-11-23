@@ -11,3 +11,5 @@
 ### [personal-1.5] - created Array of styles dynamically using js by creating one css class like .fontSize30PxAndFontWeightBold { font-size: 30px, font-weight: bold} and using a function isFontSize30PxAndFontWeightBold() { return true} based on that inside the v-bind:class="[isFontSize30PxAndFontWeightBold() ? fontSize30PxAndFontWeightBold : '', anotherStyleObjOfJavascriptWithHasByDefaultTrueAndFalseForCssStyless]"
 
 ### [personal-1.6] - cleanUp of code for next setup.
+
+### [personal-1.7] - basic button creation and triggering that binding that button with a function and passing parameters from that button clicked to the actual function that gets triggered when clicked.
