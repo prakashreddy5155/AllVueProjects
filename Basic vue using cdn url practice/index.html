@@ -10,29 +10,22 @@
 
     <div id="app"> 
 
-        <a href="www.google.com" v-on:click.prevent="callFunction()">
-            Go To Google
-        </a>
+        Enter something and press anykey to trigger the method: 
+        <!-- This executes for every key click irrespective of any.-->
+        <input type="text" v-on:keyup="executeClicked()">
+
+    </br>
         
+        Enter something and press enter to trigger the method
+        <!-- this works only for the enter-->
+        <input type="text" v-on:keyup.enter="executeEnterClicked()">
 
+       
+    </br>
 
-
-        <div class="cont" v-on:click="calledMe()">
-
-                hi
-
-                <!-- here .stop on the v-on:click directive is used for stop it from propagating from click to its parent which is div's its parent v-on:click but it only executes its own button method which gets triggered. -->
-                <button v-on:click.stop="triggerButtonMethod()">
-                    click me to trigger button method
-                </button>
-
-        </div>
-
-
-        <button v-on:click.once="triggerButtonMethod()">
-                   I will be triggered only once. !
-                </button>
-
+    Enter something and press ctrl + enter to trigger the method
+        <!-- this works only for the enter-->
+        <input type="text" v-on:keyup.enter.ctrl="executeCtrlEnterClicked()">
 
         </div>
 </body>
@@ -45,35 +38,25 @@
         setup()
         {
 
-            function callFunction()
+            function executeClicked()
             {
-                console.log("Calling function");
+                console.log("Clicked");
             }
-
-            function calledMe()
+            function executeEnterClicked()
             {
-                console.log("Called me !");
+                console.log("Enter clicked");
             }
-
-            function triggerButtonMethod()
+            function executeCtrlEnterClicked()
             {
-                console.log("triggerd button method");
+                console.log("ctrl + Enter clicked");
             }
             return {
-                callFunction,
-                calledMe,
-                triggerButtonMethod
+              executeClicked,
+              executeEnterClicked,
+              executeCtrlEnterClicked
             };
         }
     }).mount("#app");
 </script>
-<style>
-    .cont 
-    {
-        height:50px;
-        width:300px;
-        background-color: aqua;
-        border:1px solid black;
-    }
-</style>
+
 </html>
