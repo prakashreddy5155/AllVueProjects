@@ -11,14 +11,15 @@
     <div id="app"> 
 
 
-        <div>
+        <div v-bind:class="{backgroundBlueAndPadding10px:true}">
 
-            <span class="standardColorOfBlackAndFontSize10px" v-bind:class="{backgroundBlueAndMargin10px:true,colorOfWhiteAndFontSize20px:false}">
-                I am inevitable
-            </span>
+            Hello
         </div>
 
 
+        <div v-bind:class="isBackgroundBlueMarin10ColorWhiteAndFontSize20px() ? store : '' ">
+            Hi I am dynamic
+        </div>
     </div>
 
 
@@ -33,13 +34,25 @@
 
         setup()
         {
+
             const fontSizeTemp = 60;
             const standardColorWithCamelCase = {backgroundColor:'aqua',color:'white'}
 
             const standardColorWithOutCamelCase = {'background-color':'aqua','color':'white'}
+
+            const store= {backgroundBlueAndPadding10px: true,colorOfWhiteAndFontSize20px:true};
+
+            function isBackgroundBlueMarin10ColorWhiteAndFontSize20px()
+            {
+                return true;
+            }
             return {
-                fontSizeTemp
+                fontSizeTemp,
+                isBackgroundBlueMarin10ColorWhiteAndFontSize20px,
+                store
             };
+
+
         }
     }).mount("#app");
 </script>
@@ -50,7 +63,7 @@
         color:black;
         font-size:10px;
     }
-    .backgroundBlueAndMargin10px 
+    .backgroundBlueAndPadding10px 
     {
         background-color: blue;
         padding:10px
