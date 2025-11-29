@@ -13,39 +13,42 @@
         <!-- array v-for -->
         <!-- for index based in arrays there wouldn't be anything, key is nothing but index in arrays but for objects its different -->
         <div>
-          <p v-for="(value,key,index) in myArr">
+          <p v-for="(value,key,index) in myArr" :key="value">
             {{index}} - arr[{{key}}]: {{value}}
+            <input type="text">
           </p>
+          
         </div>
-        <!-- object v-for -->
+
         <div>
-          <p v-for="(value,key,index) in employee">
-            {{index}} - property - {{key}} :  {{value}}
-          </p>
+          {{shuffleElements()}}
         </div>
         
       </div>
     </div>
 </body>
 <script>
-    const {createApp,ref} = Vue
+    const {createApp,ref,reactive} = Vue
 
     createApp({
         setup()
         {
-            const myArr = [5,6,7,10,16];
-            const employee = {
-              name: "Om Sai Prakash",
-              age: 23,
-              company: "Accenture",
-              careerLevel:12
-            };
-            return {
+            const myArr = reactive([5,6,7,10,16]);
+            function shuffleElements()
+             {
+                setTimeout(()=> 
+                {
+                   this.myArr.sort(()=> Math.random() - 0.5);
+                },2000);
+                
+              } 
+
+              return {
               myArr,
-              employee
-            }
-        }
-    }).mount("#app");
+              shuffleElements
+              }
+          }
+      }).mount("#app");
 </script>
 <style>
   #app 

@@ -21,8 +21,11 @@
 ### v-else 
 #### used as a chain with v-if or v-else-if
 
-### v-for
+### basic v-for
 ####  v-for="(value,key,index) in iterable 
 #### here, it has two cases: 
 #### in arrays: index does not have anything but index here means the key , and the value is normal value.
-#### in objects: index has meaning, the first key value pair has index : 0  and it goes on key is the property name and value is property value.
+#### in objects: index has meaning, the first key value pair has index : 0  and it goes on key is the property name and value is property value. 
+
+### v-for using :key
+#### we need to add v-for  :key attribute when we want all of other things along with the actual li to be shuffled along properly. because vue treats like this, lets say if we dont add :key and dont provide the unique attribute, then vue treats since only the data has changed due to sorting the array I dont have to explicitly change everything because there are same number of <li> and ul and no change to new things, so its better to just change the text for improving performance, but when we add :key="uniquePropery" then vue understands that we can't just change the data which can lead to discrepencies so it actually moves the li tags accordingly, so the input fields attached to the same <li> persists with it.
