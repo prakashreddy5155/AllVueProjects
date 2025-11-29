@@ -41,7 +41,7 @@
          </div>
 
          <div v-else="checkVElseDrive()">
-            <p> you are not eligible to drive since you're greater than 70</p>
+            <p> you are not eligible to drive since you're greater >=70 </p>
          </div>
 
         <!-- display container  -->
@@ -89,7 +89,7 @@
           function checkVElseDrive()
           {
             const age = Number(this.ageToCheckDriveEligiblity);
-            if(age >70 )
+            if(age >=70 )
               {
                 return true;
               }
