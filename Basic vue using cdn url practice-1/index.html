@@ -10,12 +10,14 @@
     
     <div id="app">
       <div class="parent">
-        <div>
-            Counter is : {{counter}}
-        </div>
-        <div class="buttons">
-            <button v-on:click="decreaseCount">-</button>
-            <button v-on:click="increaseCount">+</button>
+        <label for="inp1">Enter your Name:</label>
+        <input v-model="name" type="text" id="inp1"> </br>
+        <label for="inp2">Enter your Age:</label>
+        <input v-model="age" type="number" id="inp2">
+
+        <div class="displayContainer">
+          Name is {{name}}
+          Age is {{age}}
         </div>
       </div>
     </div>
@@ -26,19 +28,12 @@
     createApp({
         setup()
         {
-          let counter = ref(2); 
-          function decreaseCount()
-          {
-            counter.value--;
-          }
-          function increaseCount()
-          {
-            counter.value++
-          }
+          let name = ref("");
+          let age = ref("")
+
           return {
-            counter,
-            decreaseCount,
-            increaseCount
+          name,
+          age
           }
         }
     }).mount("#app");
