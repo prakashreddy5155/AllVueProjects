@@ -32,3 +32,6 @@
 
 ### v-bind:class="methodName()" to render css 
 #### we can do this dynamically this method methodName() should written the css classes which are to be added by making them true and css classes which shouldn't be added by making them false, but if you add :class="dynamic()" this works properly, the method should have the css classes that needs to be returned to be eithr true or false and :class="[someObj() ? 'cssClasses':'' ]" here instead of cssClasses here you shouldn't provide another method which returns which classes should be rendered and all and another way is :class={cssClassName : true/false, cssClassName: true/false,{ cssClassName : true/false}} you can keep in different objects or comma separated same objects.
+
+### to add a click listener to the button
+#### to add a click listener to the button in vue, we need to add v-on:click="functionName" or v-on:click="functionName(argumentsToPassToFunction)" but this can be replaced with @click but not sure v-on: shorthand is @, need to check that

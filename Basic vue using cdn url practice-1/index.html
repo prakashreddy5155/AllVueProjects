@@ -10,20 +10,15 @@
     
     <div id="app">
       <div class="parent">
+
         
-
-        <div v-bind:class="returnDynamicCss()">
-          Hi
+        <div>
+          counter: {{counter}}
+          <button v-on:click="decrease()">-</button>
+          <button v-on:click="increase()">+</button>
         </div>
 
-        <div v-bind:class="[returnDynamicCss().margin10pxBorderStyle ? '':'margin10pxBorderStyle']">
-          Yellow background and black text 
-        </div>
       
-        
-        <div :class="[{margin10pxBorderStyle: true,backgroundYellowColorWhite: true}]">
-          huup
-        </div>
       </div>
     </div>
 </body>
@@ -33,22 +28,19 @@
     createApp({
         setup()
         {
-          
-          function returnDynamicCss()
+          let counter = ref(0);
+          function decrease()
           {
-            return {
-              margin10pxBorderStyle :true
-            }
+            this.counter--;
           }
-          function returnBackgroundColorYellowWhite()
+          function increase()
           {
-            return {
-              backgroundYellowColorWhite : true
-            }
+            this.counter++
           }
               return {
-                returnDynamicCss,
-                returnBackgroundColorYellowWhite
+                decrease,
+                increase,
+                counter
               }
           }
       }).mount("#app");
@@ -64,19 +56,6 @@
     height:30px;
     width:30px;
     margin:5px;
-  }
-  .margin10pxBorderStyle 
-  {
-    height:50px;
-    width:50px;
-    margin:2px;
-    border:2px solid black;
-    
-  }
-  .backgroundYellowColorWhite
-  {
-    background-color: yellow;
-    color: white;
   }
 </style>
 </html>

@@ -9,3 +9,5 @@
 ### [personal-1.4] - used v-for with and with out :key
 
 ### [personal-1.5] - using v-bind to render css classes
+
+### [personal-1.6] - add click listener
