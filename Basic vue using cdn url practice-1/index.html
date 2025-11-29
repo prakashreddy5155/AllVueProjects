@@ -11,13 +11,10 @@
     <div id="app">
       <div class="parent">
         <label for="inp1">Enter your Name:</label>
-        <input v-model="name" type="text" id="inp1"> </br>
-        <label for="inp2">Enter your Age:</label>
-        <input v-model="age" type="number" id="inp2">
+        <input v-bind:value="name" type="text" id="inp1"> </br>
 
         <div class="displayContainer">
           Name is {{name}}
-          Age is {{age}}
         </div>
       </div>
     </div>
@@ -28,12 +25,10 @@
     createApp({
         setup()
         {
-          let name = ref("");
-          let age = ref("")
+          let name = "om sai prakash"
 
           return {
           name,
-          age
           }
         }
     }).mount("#app");

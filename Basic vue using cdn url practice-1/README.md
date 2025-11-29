@@ -1,2 +1,3 @@
 ### [personal-1.0] - nothing
 ### [personal-1.1] - used v-model which is used to attach a js variable and when we change the input then the actual data also gets changed.
+### [personal-1.2] - v-bind is used to either display or pass something which is stored as a javascript variable into either anothr component or just display something dynamically using javascript for that we can use v-bind:href or v-bind:src, we can use that on any html attribute and it has a shortcut as well we can directly use :href or :src instead of writing v-bind:href or v-bind:src since v-bind is used heavily.
