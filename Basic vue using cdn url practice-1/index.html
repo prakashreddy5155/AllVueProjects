@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js practice using cdn 29th november 2025</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+      <div class="parent">
+        <div>
+            Counter is : {{counter}}
+        </div>
+        <div class="buttons">
+            <button v-on:click="decreaseCount">-</button>
+            <button v-on:click="increaseCount">+</button>
+        </div>
+      </div>
+    </div>
+</body>
+<script>
+    const {createApp,ref} = Vue
+
+    createApp({
+        setup()
+        {
+          let counter = ref(2); 
+          function decreaseCount()
+          {
+            counter.value--;
+          }
+          function increaseCount()
+          {
+            counter.value++
+          }
+          return {
+            counter,
+            decreaseCount,
+            increaseCount
+          }
+        }
+    }).mount("#app");
+</script>
+<style>
+  #app 
+  {
+    display: flex;
+    justify-content: center;
+  }
+  .buttons button
+  {
+    height:30px;
+    width:30px;
+    margin:5px;
+  }
+  
+</style>
+</html>
