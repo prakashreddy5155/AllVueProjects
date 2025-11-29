@@ -47,3 +47,5 @@
 
 ###  model modifiers like trim, number, lazy
 #### v-model.trim is used for trimming the starting and trailing white spaces, v-model.number is used for converting that value into number typically does Number(input Data you provide), v-lazy is used for updating the content on that model only when it loses focus, usually it updates as soon as the value changes. 
+
+### event modifers like keyup , keydown 

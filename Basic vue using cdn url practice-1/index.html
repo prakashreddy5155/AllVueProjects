@@ -11,32 +11,13 @@
     <div id="app">
       <div class="parent">
 
-        
-        <div class="input">
-          <!-- normal v-model -->
-          <input  v-model="name"  type="text">
 
-          <input  v-model.trim="nameUsingTrim" type="text">
+        any button click down can trigger: <input type="text" v-on:keydown="invokeMethod()">
+        <br>
+        enter key down can trigger: <input type="text" v-on:keydown.enter="invokeMethod()">
+        <br>
+        ctrl + Enter triggers: <input type="text" v-on:keydown.ctrl.enter="invokeMethod()">
 
-
-          <input v-model.number="age" type="text">
-
-
-          <input v-model.lazy="name" type="text">
-                    
-        </div>
-
-        <div class="display"> 
-         normal: {{name}} </br>
-          normal: {{name.length}} </br>
-          with trim: {{nameUsingTrim}} </br>
-          with trim: {{nameUsingTrim.length}} <br>
-          with number: {{ typeof age}}
-        </div>
-
-
-
-      
       </div>
     </div>
 </body>
@@ -46,14 +27,13 @@
     createApp({
         setup()
         {
-          let name = ref('');
-          let nameUsingTrim = ref('')
-          let age = ref('')
 
+            function invokeMethod()
+            {
+              console.log("method invoked");
+            }
               return {
-                name,
-                age,
-                nameUsingTrim
+                invokeMethod
               }
           }
       }).mount("#app");
@@ -64,17 +44,6 @@
     display: flex;
     justify-content: center;
   }
-  .buttons button
-  {
-    height:30px;
-    width:30px;
-    margin:5px;
-  }
-  .display 
-  {
-    height:fit-content;
-    width:120px;
-    border:1px solid red;
-  }
+
 </style>
 </html>

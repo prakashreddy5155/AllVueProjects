@@ -18,3 +18,5 @@
 
 ### [personal-1.9] - v-model trim, number lazy
 
+### [personal-1.9] - event listeners keyup and keydown things using event modifiers
+
