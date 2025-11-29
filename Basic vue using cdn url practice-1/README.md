@@ -20,3 +20,9 @@
 
 ### v-else 
 #### used as a chain with v-if or v-else-if
+
+### v-for
+####  v-for="(value,key,index) in iterable 
+#### here, it has two cases: 
+#### in arrays: index does not have anything but index here means the key , and the value is normal value.
+#### in objects: index has meaning, the first key value pair has index : 0  and it goes on key is the property name and value is property value.
