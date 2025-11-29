@@ -11,3 +11,6 @@
 ### [personal-1.5] - using v-bind to render css classes
 
 ### [personal-1.6] - add click listener
+
+### [personal-1.7] - preventing the default navigation that comes with anchor tag using event modifiers like .prevent etc
+

@@ -13,9 +13,8 @@
 
         
         <div>
-          counter: {{counter}}
-          <button v-on:click="decrease()">-</button>
-          <button v-on:click="increase()">+</button>
+          <!-- if i click o it the default behaviour is to go to google.com, but if i want to remvoe that default behaviour and want to check some conditions before navigating to google.com then i need to use  his, here, i have provided the function execute functiona and later after doing that I can use window.location.href to change the url dynamically so that is will open it.-->
+          <a  v-on:click.prevent="executeFunction()" href="https://www.google.com">Google</a>
         </div>
 
       
@@ -28,19 +27,17 @@
     createApp({
         setup()
         {
-          let counter = ref(0);
-          function decrease()
+          function executeFunction()
           {
-            this.counter--;
-          }
-          function increase()
-          {
-            this.counter++
+            console.log("Hey Hi, Executing function ");
+
+            setTimeout(()=> 
+              {
+                window.location.href="https://www.google.com";
+              },2000)
           }
               return {
-                decrease,
-                increase,
-                counter
+                executeFunction
               }
           }
       }).mount("#app");
