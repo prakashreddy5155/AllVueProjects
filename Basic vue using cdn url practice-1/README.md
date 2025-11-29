@@ -41,3 +41,6 @@
 
 ### <a href="www.google.com" v-on:click.prevent=doSomethingFunc()> Go To Google</a>
 #### the above code triggers the method instead of triggering to google.com which is the default behaviour, .prevent event modifier changes the default behaviour and adds custom functionality based on what we pass, here we are passing a method, v-on:click.stop is used to stop progagating to its parent because its parent may have different method, so if it propagates it executes the child method along with parent method leading to disturbing behaviour when they both have different method for each v-on:click
+
+### using .prevent, .stop, .once 
+#### .prevent is used for stopping the link by default to navigate to a url that we have provided, instead we can provide a function and later trigger the redirection with code. .stop is for stopping the bubbling in the DOM tree, .once runs the function which we have added the event listener on, runs that function only once and later removes the listener itself. you can also use .prevent on the forms , inputs etc and also .stop can be used on div's anything and also .once is used on div as well etc.

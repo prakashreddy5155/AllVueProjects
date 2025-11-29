@@ -13,9 +13,26 @@
 
         
         <div>
-          <!-- if i click o it the default behaviour is to go to google.com, but if i want to remvoe that default behaviour and want to check some conditions before navigating to google.com then i need to use  his, here, i have provided the function execute functiona and later after doing that I can use window.location.href to change the url dynamically so that is will open it.-->
-          <a  v-on:click.prevent="executeFunction()" href="https://www.google.com">Google</a>
+          <!-- link -->
+           prevent: <a v-on:click.prevent="executeFunction()" href="https://www.google.com">Google</a>
+            </br>
+          once:  <a v-on:click.once="executeFunction()" href="https://www.google.com" target="_blank">Google</a>
+            </br>
+
+            <div v-on:click="triggeredParent()">
+          stop:  <a v-on:click.stop="executeFunction()" href="https://www.google.com" target="_blank">Google</a>
+          </div>
+          <!-- button -->
+
+          </br>
+          <div v-on:click="triggeredParent()"> 
+          <button v-on:click="increaseCount()">+</button>
+
+          </div>
+          output: {{count}}
         </div>
+
+
 
       
       </div>
@@ -27,17 +44,25 @@
     createApp({
         setup()
         {
+          let count = ref(0);
           function executeFunction()
           {
             console.log("Hey Hi, Executing function ");
-
-            setTimeout(()=> 
-              {
-                window.location.href="https://www.google.com";
-              },2000)
+          }
+          function increaseCount()
+          {
+            console.log("clicked");
+            this.count++;
+          }
+          function triggeredParent()
+          {
+            console.log("Parent triggered");
           }
               return {
-                executeFunction
+                count,
+                executeFunction,
+                increaseCount,
+                triggeredParent
               }
           }
       }).mount("#app");

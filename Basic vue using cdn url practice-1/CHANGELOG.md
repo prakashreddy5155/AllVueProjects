@@ -14,3 +14,6 @@
 
 ### [personal-1.7] - preventing the default navigation that comes with anchor tag using event modifiers like .prevent etc
 
+### [personal-1.8] - event modifiers like .prevent, .stop, .once on the click listener
+
+
