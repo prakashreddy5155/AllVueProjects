@@ -12,11 +12,32 @@
       <div class="parent">
 
 
-        any button click down can trigger: <input type="text" v-on:keydown="invokeMethod()">
-        <br>
-        enter key down can trigger: <input type="text" v-on:keydown.enter="invokeMethod()">
-        <br>
-        ctrl + Enter triggers: <input type="text" v-on:keydown.ctrl.enter="invokeMethod()">
+          <div>
+            <p v-if="callAnotherMethod()">
+              one div
+            </p>
+            <p v-else-if="callAnotherVElseIf()">
+              else if
+            </p>
+            <p v-else="callAnotherVElse()">
+              else  
+            </p>
+          </div>
+
+           <div :style="applyDynamicStyle()">
+            Hey I am dynamically styled.
+          </div> 
+
+          <div v-html="getData()">
+
+          </div>
+
+        <div>
+          Counter Application
+          {{counter}} </br>
+          <button v-on:click="counter--">-</button> <br>
+          <button v-on:click="counter++">+</button>
+        </div>
 
       </div>
     </div>
@@ -27,13 +48,51 @@
     createApp({
         setup()
         {
+          let counter = ref(0);
+          function callMethod()
+          {
+            console.log("another method called");
+          }
+          
+          function callAnotherMethod()
+          {
+            console.log("V-If");
+            return false;
+          }
+          function callAnotherVElseIf()
+          {
+            console.log("V-Else-if");
+            return false;
+          }
+          function callAnotherVElse()
+          {
+            console.log("V-Else");
+            return false;
+          }
 
-            function invokeMethod()
-            {
-              console.log("method invoked");
-            }
+          function applyDynamicStyle()
+          {
+            console.log("Called Dynamic style method");
+            return {
+              color:'red',
+              backgroundColor:'yellow'
+              }
+          }
+
+          function getData()
+          {
+            console.log("getData method invoked");
+            return "<i> Hi This is italics </i>";
+          }
+
               return {
-                invokeMethod
+                counter,
+                callMethod,
+                callAnotherMethod,
+                callAnotherVElseIf,
+                callAnotherVElse,
+                applyDynamicStyle,
+                getData
               }
           }
       }).mount("#app");
@@ -44,6 +103,7 @@
     display: flex;
     justify-content: center;
   }
+  
 
 </style>
 </html>

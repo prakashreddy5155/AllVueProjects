@@ -49,3 +49,7 @@
 #### v-model.trim is used for trimming the starting and trailing white spaces, v-model.number is used for converting that value into number typically does Number(input Data you provide), v-lazy is used for updating the content on that model only when it loses focus, usually it updates as soon as the value changes. 
 
 ### event modifers like keyup , keydown 
+
+### when to use computed properties and when to use methods: 
+#### if you have something, that is dependent on the variables then it is better to put them inside computed properties, if the dependencies change then only that computed property will be re-computed or else the data will be cached and the performance would be high, so in that scenarios its better to use computed properties. 
+#### if you want to use the computed property as a method then you need to return a arrow function from the computed property and then you can pass a parameter to the computed property or else you can't pass any parameter to the computed property.

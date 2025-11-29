@@ -18,5 +18,7 @@
 
 ### [personal-1.9] - v-model trim, number lazy
 
-### [personal-1.9] - event listeners keyup and keydown things using event modifiers
+### [personal-2.0] - event listeners keyup and keydown things using event modifiers
+
+### [personal-2.1] - disadvantage of using methods over computed properties in some scenarios.
 
