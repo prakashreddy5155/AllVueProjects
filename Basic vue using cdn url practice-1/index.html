@@ -12,24 +12,26 @@
       <div class="parent">
 
         
-        <div>
-          <!-- link -->
-           prevent: <a v-on:click.prevent="executeFunction()" href="https://www.google.com">Google</a>
-            </br>
-          once:  <a v-on:click.once="executeFunction()" href="https://www.google.com" target="_blank">Google</a>
-            </br>
+        <div class="input">
+          <!-- normal v-model -->
+          <input  v-model="name"  type="text">
 
-            <div v-on:click="triggeredParent()">
-          stop:  <a v-on:click.stop="executeFunction()" href="https://www.google.com" target="_blank">Google</a>
-          </div>
-          <!-- button -->
+          <input  v-model.trim="nameUsingTrim" type="text">
 
-          </br>
-          <div v-on:click="triggeredParent()"> 
-          <button v-on:click="increaseCount()">+</button>
 
-          </div>
-          output: {{count}}
+          <input v-model.number="age" type="text">
+
+
+          <input v-model.lazy="name" type="text">
+                    
+        </div>
+
+        <div class="display"> 
+         normal: {{name}} </br>
+          normal: {{name.length}} </br>
+          with trim: {{nameUsingTrim}} </br>
+          with trim: {{nameUsingTrim.length}} <br>
+          with number: {{ typeof age}}
         </div>
 
 
@@ -44,25 +46,14 @@
     createApp({
         setup()
         {
-          let count = ref(0);
-          function executeFunction()
-          {
-            console.log("Hey Hi, Executing function ");
-          }
-          function increaseCount()
-          {
-            console.log("clicked");
-            this.count++;
-          }
-          function triggeredParent()
-          {
-            console.log("Parent triggered");
-          }
+          let name = ref('');
+          let nameUsingTrim = ref('')
+          let age = ref('')
+
               return {
-                count,
-                executeFunction,
-                increaseCount,
-                triggeredParent
+                name,
+                age,
+                nameUsingTrim
               }
           }
       }).mount("#app");
@@ -78,6 +69,12 @@
     height:30px;
     width:30px;
     margin:5px;
+  }
+  .display 
+  {
+    height:fit-content;
+    width:120px;
+    border:1px solid red;
   }
 </style>
 </html>

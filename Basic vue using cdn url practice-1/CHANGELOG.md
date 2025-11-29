@@ -16,4 +16,5 @@
 
 ### [personal-1.8] - event modifiers like .prevent, .stop, .once on the click listener
 
+### [personal-1.9] - v-model trim, number lazy
 

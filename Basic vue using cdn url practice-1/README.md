@@ -44,3 +44,6 @@
 
 ### using .prevent, .stop, .once 
 #### .prevent is used for stopping the link by default to navigate to a url that we have provided, instead we can provide a function and later trigger the redirection with code. .stop is for stopping the bubbling in the DOM tree, .once runs the function which we have added the event listener on, runs that function only once and later removes the listener itself. you can also use .prevent on the forms , inputs etc and also .stop can be used on div's anything and also .once is used on div as well etc.
+
+###  model modifiers like trim, number, lazy
+#### v-model.trim is used for trimming the starting and trailing white spaces, v-model.number is used for converting that value into number typically does Number(input Data you provide), v-lazy is used for updating the content on that model only when it loses focus, usually it updates as soon as the value changes. 
