@@ -7,3 +7,5 @@
 ### [personal-1.3] - used v-bind,v-html,v-once, v-show, v-if, v-else-if, v-else to create the webpage 
 
 ### [personal-1.4] - used v-for with and with out :key
+
+### [personal-1.5] - using v-bind to render css classes

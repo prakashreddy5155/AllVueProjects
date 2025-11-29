@@ -10,20 +10,20 @@
     
     <div id="app">
       <div class="parent">
-        <!-- array v-for -->
-        <!-- for index based in arrays there wouldn't be anything, key is nothing but index in arrays but for objects its different -->
-        <div>
-          <p v-for="(value,key,index) in myArr" :key="value">
-            {{index}} - arr[{{key}}]: {{value}}
-            <input type="text">
-          </p>
-          
+        
+
+        <div v-bind:class="returnDynamicCss()">
+          Hi
         </div>
 
-        <div>
-          {{shuffleElements()}}
+        <div v-bind:class="[returnDynamicCss().margin10pxBorderStyle ? '':'margin10pxBorderStyle']">
+          Yellow background and black text 
         </div>
+      
         
+        <div :class="[{margin10pxBorderStyle: true,backgroundYellowColorWhite: true}]">
+          huup
+        </div>
       </div>
     </div>
 </body>
@@ -33,19 +33,22 @@
     createApp({
         setup()
         {
-            const myArr = reactive([5,6,7,10,16]);
-            function shuffleElements()
-             {
-                setTimeout(()=> 
-                {
-                   this.myArr.sort(()=> Math.random() - 0.5);
-                },2000);
-                
-              } 
-
+          
+          function returnDynamicCss()
+          {
+            return {
+              margin10pxBorderStyle :true
+            }
+          }
+          function returnBackgroundColorYellowWhite()
+          {
+            return {
+              backgroundYellowColorWhite : true
+            }
+          }
               return {
-              myArr,
-              shuffleElements
+                returnDynamicCss,
+                returnBackgroundColorYellowWhite
               }
           }
       }).mount("#app");
@@ -62,6 +65,18 @@
     width:30px;
     margin:5px;
   }
-  
+  .margin10pxBorderStyle 
+  {
+    height:50px;
+    width:50px;
+    margin:2px;
+    border:2px solid black;
+    
+  }
+  .backgroundYellowColorWhite
+  {
+    background-color: yellow;
+    color: white;
+  }
 </style>
 </html>
