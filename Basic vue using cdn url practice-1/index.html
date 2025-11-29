@@ -11,8 +11,40 @@
     <div id="app">
       <div class="parent">
         <label for="inp1">Enter your Name:</label>
+        <!-- v-bind -->
         <input v-bind:value="name" type="text" id="inp1"> </br>
+        <!-- v-html -->
+        <div v-once v-html="renderThisHTML">       
 
+        </div>
+         <!-- v-once -->
+          <!-- calling the function due to which it changes the value fo the renderThisHTML using this renderAfter2Sec after 2 sec of time. but since the v-once is there so it wont get re-rendered after 2 sec, but if we remove that it will get re-rendered. -->
+        <div> 
+                    {{renderAfter2Sec()}}  
+        </div>
+
+        <!-- v-show -->
+         <p v-show="showOrHide()">
+          This is just a paragraph which v-show is applied
+         </p>
+
+         <!-- v-if, v-else-if v-else -->
+
+         <!-- lets check if the person is eligible to drive or not. -->
+        Enter your age to determine whether you can drive or not:  <input type="number" v-model="ageToCheckDriveEligiblity">
+         <div v-if="checkVIfDrive()">
+            <p> you are not eligible to drive since you're less than or equal to 18</p>
+         </div>
+
+         <div v-else-if="checkVElseIfDrive()"> 
+            <p> you are eligible to drive since you're greater than 18 but less than 70 years</p>
+         </div>
+
+         <div v-else="checkVElseDrive()">
+            <p> you are not eligible to drive since you're greater than 70</p>
+         </div>
+
+        <!-- display container  -->
         <div class="displayContainer">
           Name is {{name}}
         </div>
@@ -25,10 +57,52 @@
     createApp({
         setup()
         {
-          let name = "om sai prakash"
+          let name = "om sai prakash";
+          let renderThisHTML = ref("<b> I need to focus more to get this done effectively </b>");
+          const ageToCheckDriveEligiblity = ref(0);
+          
 
+          function renderAfter2Sec()
+          {
+            setTimeout(()=> this.renderThisHTML = "<b> Hey Hi, Hope you are doing great </b>",2000);
+          }
+          function showOrHide()
+          {
+            // lets say we have some logic here, but I am not using any logic i am just using true or false.
+            return false;
+          }
+          function checkVIfDrive()
+          {
+            if(Number(this.ageToCheckDriveEligiblity) <= 18 )
+              {
+                return true;
+              }
+          }
+          function checkVElseIfDrive()
+          {
+            const age = Number(this.ageToCheckDriveEligiblity);
+            if(age > 18 && age <70 )
+              {
+                return true;
+              }
+          }
+          function checkVElseDrive()
+          {
+            const age = Number(this.ageToCheckDriveEligiblity);
+            if(age >70 )
+              {
+                return true;
+              }
+          }
           return {
           name,
+          renderThisHTML,
+          renderAfter2Sec,
+          showOrHide,
+          ageToCheckDriveEligiblity,
+          checkVIfDrive,
+          checkVElseIfDrive,
+          checkVElseDrive
           }
         }
     }).mount("#app");
