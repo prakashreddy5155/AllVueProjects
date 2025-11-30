@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vue.js practice using cdn 29th november 2025</title>
+    <title>Basic Movie Project</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
@@ -12,14 +12,6 @@
       <div class="parent"> 
 
 
-        <div>
-          {{getFullName}} <br>
-          reactive counter: 
-          {{reactiveCounter.value}} <br>
-          <button v-on:click="reactiveCounter.value--">-</button>
-          <button v-on:click="reactiveCounter.value++">+</button>
-
-        </div>
       </div>
     </div>
 </body>
@@ -29,31 +21,9 @@
     createApp({
         setup()
         {
-            let counter = ref(0);
-            let firstName = ref("Ben");
-            let lastName = ref("10");
-            let reactiveCounter = reactive({value: 0});
-
-            const  getFullName = computed(()=>
-            {
-              console.log("getFullName called");
-              
-              return firstName.value + " "+ lastName.value;
-            });
-
-            watch(()=>reactiveCounter.value,(newVal,oldVal)=> {
-              console.log(`changed from ${oldVal} to ${newVal}`);
-
-              if(newVal === 4)
-              {
-                alert("The newVal is 4");
-              }
-            });
 
             return {
-              counter,
-              getFullName,
-              reactiveCounter
+
             }
         }
       }).mount("#app");
