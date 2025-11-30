@@ -24,4 +24,5 @@
 
 ### [personal-2.2] - Example scenario stating that the method is getting called even if we are not changing anything that it is depended on, even if a slight change to DOM happens then also that methods gets called.
 
+### [personal-2.3] - solution for not letting the method call even if some value gets updated.
 

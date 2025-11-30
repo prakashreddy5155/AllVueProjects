@@ -13,7 +13,7 @@
 
 
         <div>
-          {{getFullName()}} <br>
+          {{getFullName}} <br>
           counter: 
           {{counter}} <br>
           <button v-on:click="counter--">-</button>
@@ -24,7 +24,7 @@
     </div>
 </body>
 <script>
-    const {createApp,ref,reactive} = Vue
+    const {createApp,ref,reactive,computed} = Vue
 
     createApp({
         setup()
@@ -32,12 +32,12 @@
             let counter = ref(0);
             let firstName = ref("Ben");
             let lastName = ref("10");
-            function getFullName()
+            const  getFullName = computed(()=>
             {
               console.log("getFullName called");
               
               return firstName.value + " "+ lastName.value;
-            }
+            });
             return {
               counter,
               getFullName

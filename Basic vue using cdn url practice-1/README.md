@@ -56,3 +56,6 @@
 
 ### when does the methods run even if some value in the DOM changes, like ref value gets updated then also which methods runs, 
 #### methods which are put inside {{ myMethod() }} string interpolation, methods provided to v-if, v-else-if, v-else, methods provided to the v-bind anything like v-bind:style="" or v-bind:class="", or v-bind:src or any v-bind which can be used with either v-bind or :style or :class or :src as a shorthand the methods provided to that directives would surely re-run even if the ref gets updated.
+
+### [personal-2.3]- solution for not letting method re-run for every slight DOM change .
+#### the solution is to put that method into computed properties when we know that method has dependents like variables. because computed property caches the variables, and gets re-computed only when the values of it changes or else it wont re-compute.
