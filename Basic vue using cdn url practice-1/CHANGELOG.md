@@ -31,3 +31,6 @@
 ### [personal-2.5] - how to use watchers when watching for a object which has a value which is reactive object.
 
 ### [personal-2.6] - basic movie project cleanup
+
+
+### [personal-2.7] - created basic movie storing list

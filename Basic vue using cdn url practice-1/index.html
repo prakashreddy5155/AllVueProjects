@@ -11,6 +11,45 @@
     <div id="app">
       <div class="parent"> 
 
+        <div class="container">
+          <div class="heading">
+            <h1>MovieOPedia</h1>
+          </div>
+          <div class="inputDiv">
+            <span style="color:white"> Title: </span>
+            <input  type="text" v-model="userEnteredMovies.name">
+          </div>
+
+          <div class="inputDiv">
+            <span style="color:white"  > Year:  </span>
+            <input  type="text" v-model="userEnteredMovies.year">
+          </div>
+
+          <div class="buttonsContainer">
+            <button v-on:click="addMovie()">Add Movie</button>
+            <button v-on:click="removeMovie()">Remove Movie</button>
+          </div>
+          <div class="cautionMsg" v-html=displayCaution style="width: fit-content; height: fit-content; min-height: 30px;">
+            
+          </div>
+          <div class="moviesListContainer" style="text-align: center;">
+            <h4>  Movies List </h4> 
+            <span style="color:yellow">
+               {{limitMessage}}
+            </span> 
+
+            <div>
+              <ul style="list-style: none;">
+                <li v-for="(value,key,index) in getAllMovieText" style="width:fit-content">
+                  {{value}}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        
 
       </div>
     </div>
@@ -21,9 +60,79 @@
     createApp({
         setup()
         {
+          let displayCaution = ref('');
+          const movies = reactive([
+            {name: "Mr.Perfect", year: 2011}, 
+            {name: "Darling", year: 2010}, 
+           { name: "Mirchi", year: 2013}, 
+          ]);
+
+          const userEnteredMovies = reactive({name:'',year:''});
+          let limitMessage = ref('');
+
+          function addMovie()
+          {
+            console.log("add movie triggered");
+            if(userEnteredMovies.name !== '' && userEnteredMovies.year !== '')
+            {
+                movies.push({name:userEnteredMovies.name,year: userEnteredMovies.year});
+            }
+            else if(document.querySelector(".cautionMsg").hasChildNodes())
+            {
+              displayCaution.value = '';
+              setTimeout(()=> 
+              {
+                displayCaution.value = "<span style='color:red';> Please Enter before clicking Add Movie </span>";
+              },200);
+            }
+            else 
+            {
+              
+              displayCaution.value = "<span style='color:red';> Please Enter before clicking Add Movie </span>";
+            }
+          }
+          function removeMovie()  
+          {
+             console.log("remove movie triggered");
+            if(movies.length != 0)
+            {
+              movies.pop();
+            }
+          }
+          
+
+        
+          const getAllMovieText = computed(()=> {
+
+             return movies.map((movie)=>  `${movie.name} is released in ${movie.year}` )
+
+           
+          });
+
+
+          watch(()=> movies.length , (newVal,oldVal)=> 
+            {
+              console.log("Watcher ran")
+              if(newVal >= 3)
+              {
+                limitMessage.value  = 'You can add only up to 5 movies';
+              }
+              else 
+              {
+                limitMessage.value = '';
+              }
+                
+            },
+          {immediate: true});
 
             return {
-
+              movies,
+              userEnteredMovies,
+              displayCaution,
+              addMovie,
+              removeMovie,
+              getAllMovieText,
+              limitMessage
             }
         }
       }).mount("#app");
@@ -34,7 +143,49 @@
     display: flex;
     justify-content: center;
   }
-  
+  .parent 
+  {
+    height:500px;
+    width:500px;
+    background-color: purple;
+    display: flex;
+    justify-content: center;
+  }
+  .heading 
+  {
+    text-align: center;
+
+  }
+  .container {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* flex-direction: column; */
+  }
+
+  .buttonsContainer { 
+    margin:10px;  
+
+  }
+  .buttonsContainer button
+  {
+      margin:5px;
+      height:30px;
+      width:fit-content;
+      border-radius: 5px;
+
+  }
+
+  .inputDiv
+  {
+    margin:5px;
+  }
+
+  .inputDiv input 
+  {
+    width: 200px;
+    height:20px;
+    border-radius: 5px;
+  }
 
 </style>
 </html>
