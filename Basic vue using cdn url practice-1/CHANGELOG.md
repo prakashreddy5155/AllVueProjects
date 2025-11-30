@@ -34,3 +34,5 @@
 
 
 ### [personal-2.7] - created basic movie storing list
+
+### [personal-2.8] - form validation

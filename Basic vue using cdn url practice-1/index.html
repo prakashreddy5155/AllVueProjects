@@ -8,51 +8,64 @@
 </head>
 <body>
     
-    <div id="app">
-      <div class="parent"> 
+<div id="app">
+    <div class="parent"> 
 
+      <form v-on:submit.prevent="handleForm()">
         <div class="container">
           <div class="heading">
-            <h1>MovieOPedia</h1>
+            <h1>FormOpedia</h1>
+          </div>
+
+          <div>
+            <ul>
+              <li :style="{color:'red',listStyleType:'none'}" v-for="error in errorList">{{error}}</li>
+            </ul>
           </div>
           <div class="inputDiv">
-            <span style="color:white"> Title: </span>
-            <input  type="text" v-model="userEnteredMovies.name">
+            <span  class="textSpan" > Name  </span>
+           <input name="name" type="text" v-model.trim="formObj.name" class="inputBox" placeholder="Enter Name" >
           </div>
 
           <div class="inputDiv">
-            <span style="color:white"  > Year:  </span>
-            <input  type="text" v-model="userEnteredMovies.year">
+            <span class="textSpan"> Email  </span>
+           <input  name= "email" type="text" v-model.trim="formObj.email" class="inputBox" placeholder="Enter Email">
+          </div>
+   
+          <div class="inputDiv">
+            <span  class="textSpan">Phone   </span>
+          <input  name="phone" type="number" v-model.number="formObj.phone" class="inputBox" placeholder="Enter Phone Number">
+          </div>
+          <!-- <div class="inputDiv">
+            <p  class="" >Gender </p>
+            <span>Male</span>
+            <input  type="radio" v-model="formObj.gender" name="gender" value="male">
+            <span>Female</span>
+            <input type="radio" v-model="formObj.gender" name="gender" value="female">
+          </div> -->
+          
+          <div class="inputDiv">
+            <p >Gender </p>
+            <select name="gender"  class="inputBox" v-model="formObj.genderUsingDropDown">
+              <option selected value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
           </div>
 
-          <div class="buttonsContainer">
-            <button v-on:click="addMovie()">Add Movie</button>
-            <button v-on:click="removeMovie()">Remove Movie</button>
-          </div>
-          <div class="cautionMsg" v-html=displayCaution style="width: fit-content; height: fit-content; min-height: 30px;">
+          <div>
             
+            <input type="checkbox" v-model="formObj.isSubscribed">
+            <span>Subscribe to the news Letter</span>
           </div>
-          <div class="moviesListContainer" style="text-align: center;">
-            <h4>  Movies List </h4> 
-            <span style="color:yellow">
-               {{limitMessage}}
-            </span> 
 
-            <div>
-              <ul style="list-style: none;">
-                <li v-for="(value,key,index) in getAllMovieText" style="width:fit-content">
-                  {{value}}
-                </li>
-              </ul>
-            </div>
+          <div class="inputDiv">
+            <button>Submit</button>
           </div>
         </div>
+      </form>
 
-
-        
-
-      </div>
     </div>
+</div>
 </body>
 <script>
     const {createApp,ref,reactive,computed,watch} = Vue
@@ -60,79 +73,45 @@
     createApp({
         setup()
         {
-          let displayCaution = ref('');
-          const movies = reactive([
-            {name: "Mr.Perfect", year: 2011}, 
-            {name: "Darling", year: 2010}, 
-           { name: "Mirchi", year: 2013}, 
-          ]);
+            const formObj = reactive({
+              email: '',
+              name: '',
+              phone:'',
+              genderUsingDropDown:'male',
+              isSubscribed:false,
+            })
 
-          const userEnteredMovies = reactive({name:'',year:''});
-          let limitMessage = ref('');
+            const errorList = reactive([]);
 
-          function addMovie()
-          {
-            console.log("add movie triggered");
-            if(userEnteredMovies.name !== '' && userEnteredMovies.year !== '')
+            function handleForm()
             {
-                movies.push({name:userEnteredMovies.name,year: userEnteredMovies.year});
-            }
-            else if(document.querySelector(".cautionMsg").hasChildNodes())
-            {
-              displayCaution.value = '';
-              setTimeout(()=> 
+              const regex =  /[a-z0-9A-Z]+@[a-zA-z]+[.][a-zA-Z]/;
+              errorList.length = 0;
+              if(formObj.name.length < 3)
               {
-                displayCaution.value = "<span style='color:red';> Please Enter before clicking Add Movie </span>";
-              },200);
-            }
-            else 
-            {
-              
-              displayCaution.value = "<span style='color:red';> Please Enter before clicking Add Movie </span>";
-            }
-          }
-          function removeMovie()  
-          {
-             console.log("remove movie triggered");
-            if(movies.length != 0)
-            {
-              movies.pop();
-            }
-          }
-          
-
-        
-          const getAllMovieText = computed(()=> {
-
-             return movies.map((movie)=>  `${movie.name} is released in ${movie.year}` )
-
-           
-          });
-
-
-          watch(()=> movies.length , (newVal,oldVal)=> 
-            {
-              console.log("Watcher ran")
-              if(newVal >= 3)
-              {
-                limitMessage.value  = 'You can add only up to 5 movies';
+                errorList.push('Name should be atleast 3 characters in length');
               }
-              else 
+              if(!regex.test(formObj.email))
               {
-                limitMessage.value = '';
+                errorList.push("please provide a valid email id");
               }
-                
-            },
-          {immediate: true});
+              if(formObj.isSubscribed === false )
+              {
+                errorList.push("please subscribe to news letter before submitting form")
+              }
+
+              if(!errorList.length)
+              {
+                alert("Form is submitted");
+                 console.log(formObj);
+              }
+             
+            }
 
             return {
-              movies,
-              userEnteredMovies,
-              displayCaution,
-              addMovie,
-              removeMovie,
-              getAllMovieText,
-              limitMessage
+              formObj,
+              handleForm,
+              errorList
             }
         }
       }).mount("#app");
@@ -145,46 +124,41 @@
   }
   .parent 
   {
-    height:500px;
-    width:500px;
-    background-color: purple;
+
     display: flex;
     justify-content: center;
   }
-  .heading 
+  
+  .container 
   {
     text-align: center;
+    height:500px;
+    width:800px;
+    background-color: rgb(70, 70, 144);
 
   }
-  .container {
-    /* display: flex; */
-    /* justify-content: center; */
-    /* flex-direction: column; */
-  }
-
-  .buttonsContainer { 
-    margin:10px;  
-
-  }
-  .buttonsContainer button
+  .inputDiv 
   {
-      margin:5px;
-      height:30px;
-      width:fit-content;
-      border-radius: 5px;
-
+    margin:10px;
+  }
+  .textSpan
+  {
+    width:100px;
   }
 
-  .inputDiv
+  .inputDiv button 
   {
-    margin:5px;
+    width:100px;
+    height:40px;
+    border-radius: 6px;
+    cursor:pointer;
   }
 
-  .inputDiv input 
+  .inputBox 
   {
-    width: 200px;
-    height:20px;
-    border-radius: 5px;
+    width:200px;
+    height:30px;
+    border-radius: 10px;
   }
 
 </style>
