@@ -69,7 +69,3 @@
 #### can perform asynchronous operation inside them    #### can't perform async operation
 #### are not cached                                    #### are cached
 #### executed whenever the watched data changes        #### executed only when the dependencies of                                                                         the computed property change
-
-### [personal-2.5]
-#### when using reactive on objects how to use watcher to make it work when it was a ref.
-#### we need to use .propery of the object and we need to use a getter like ()=> objectName.property or else it wont work
