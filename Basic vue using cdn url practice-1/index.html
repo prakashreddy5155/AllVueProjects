@@ -14,10 +14,10 @@
 
         <div>
           {{getFullName}} <br>
-          counter: 
-          {{counter}} <br>
-          <button v-on:click="counter--">-</button>
-          <button v-on:click="counter++">+</button>
+          reactive counter: 
+          {{reactiveCounter.value}} <br>
+          <button v-on:click="reactiveCounter.value--">-</button>
+          <button v-on:click="reactiveCounter.value++">+</button>
 
         </div>
       </div>
@@ -32,6 +32,8 @@
             let counter = ref(0);
             let firstName = ref("Ben");
             let lastName = ref("10");
+            let reactiveCounter = reactive({value: 0});
+
             const  getFullName = computed(()=>
             {
               console.log("getFullName called");
@@ -39,7 +41,7 @@
               return firstName.value + " "+ lastName.value;
             });
 
-            watch(()=>counter.value,(newVal,oldVal)=> {
+            watch(()=>reactiveCounter.value,(newVal,oldVal)=> {
               console.log(`changed from ${oldVal} to ${newVal}`);
 
               if(newVal === 4)
@@ -50,7 +52,8 @@
 
             return {
               counter,
-              getFullName
+              getFullName,
+              reactiveCounter
             }
         }
       }).mount("#app");
