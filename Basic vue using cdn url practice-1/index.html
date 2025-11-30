@@ -15,9 +15,9 @@
         <div>
           {{getFullName}} <br>
           counter: 
-          {{counter}} <br>
-          <button v-on:click="counter--">-</button>
-          <button v-on:click="counter++">+</button>
+          {{obj.value}} <br>
+          <button v-on:click="obj.value--">-</button>
+          <button v-on:click="obj.value++">+</button>
 
         </div>
       </div>
@@ -32,14 +32,15 @@
             let counter = ref(0);
             let firstName = ref("Ben");
             let lastName = ref("10");
+            let obj = reactive({value: 0});
             const  getFullName = computed(()=>
             {
               console.log("getFullName called");
               
               return firstName.value + " "+ lastName.value;
             });
-
-            watch(()=>counter.value,(newVal,oldVal)=> {
+            //  we have implemented a getter here, which is ()=> counter.value , if it is ref, reactive object, array of that types then it will work but for others we need to use counter.value, since we know that counter is a ref even if we change that from counter.value to counter now then also it works since it works with ref's.
+            watch(()=>obj.value,(newVal,oldVal)=> {
               console.log(`changed from ${oldVal} to ${newVal}`);
 
               if(newVal === 4)
@@ -50,7 +51,8 @@
 
             return {
               counter,
-              getFullName
+              getFullName,
+              obj
             }
         }
       }).mount("#app");

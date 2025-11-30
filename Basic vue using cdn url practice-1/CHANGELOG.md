@@ -28,3 +28,5 @@
 
 ### [personal-2.4] - used watchers and knowledge on watchers
 
+### [personal-2.5] - how to use watchers when watching for a object which has a value which is reactive object.
+
