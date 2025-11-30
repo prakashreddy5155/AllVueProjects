@@ -24,7 +24,7 @@
     </div>
 </body>
 <script>
-    const {createApp,ref,reactive,computed} = Vue
+    const {createApp,ref,reactive,computed,watch} = Vue
 
     createApp({
         setup()
@@ -38,6 +38,16 @@
               
               return firstName.value + " "+ lastName.value;
             });
+
+            watch(()=>counter.value,(newVal,oldVal)=> {
+              console.log(`changed from ${oldVal} to ${newVal}`);
+
+              if(newVal === 4)
+              {
+                alert("The newVal is 4");
+              }
+            });
+
             return {
               counter,
               getFullName

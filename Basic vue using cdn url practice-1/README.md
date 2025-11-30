@@ -59,3 +59,13 @@
 
 ### [personal-2.3]- solution for not letting method re-run for every slight DOM change .
 #### the solution is to put that method into computed properties when we know that method has dependents like variables. because computed property caches the variables, and gets re-computed only when the values of it changes or else it wont re-compute.
+
+### [personal-2.4]
+### some knowledge on computed property and watchers: 
+
+#### watchers                                          #### computed properties
+
+#### keyword: watch(()=> {})                           #### keyword: computed(()=> {})
+#### can perform asynchronous operation inside them    #### can't perform async operation
+#### are not cached                                    #### are cached
+#### executed whenever the watched data changes        #### executed only when the dependencies of                                                                         the computed property change

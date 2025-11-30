@@ -26,3 +26,5 @@
 
 ### [personal-2.3] - solution for not letting the method call even if some value gets updated.
 
+### [personal-2.4] - used watchers and knowledge on watchers
+
