@@ -53,3 +53,6 @@
 ### when to use computed properties and when to use methods: 
 #### if you have something, that is dependent on the variables then it is better to put them inside computed properties, if the dependencies change then only that computed property will be re-computed or else the data will be cached and the performance would be high, so in that scenarios its better to use computed properties. 
 #### if you want to use the computed property as a method then you need to return a arrow function from the computed property and then you can pass a parameter to the computed property or else you can't pass any parameter to the computed property.
+
+### when does the methods run even if some value in the DOM changes, like ref value gets updated then also which methods runs, 
+#### methods which are put inside {{ myMethod() }} string interpolation, methods provided to v-if, v-else-if, v-else, methods provided to the v-bind anything like v-bind:style="" or v-bind:class="", or v-bind:src or any v-bind which can be used with either v-bind or :style or :class or :src as a shorthand the methods provided to that directives would surely re-run even if the ref gets updated.

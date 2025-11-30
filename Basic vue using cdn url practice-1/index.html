@@ -9,36 +9,17 @@
 <body>
     
     <div id="app">
-      <div class="parent">
+      <div class="parent"> 
 
-
-          <div>
-            <p v-if="callAnotherMethod()">
-              one div
-            </p>
-            <p v-else-if="callAnotherVElseIf()">
-              else if
-            </p>
-            <p v-else="callAnotherVElse()">
-              else  
-            </p>
-          </div>
-
-           <div :style="applyDynamicStyle()">
-            Hey I am dynamically styled.
-          </div> 
-
-          <div v-html="getData()">
-
-          </div>
 
         <div>
-          Counter Application
-          {{counter}} </br>
-          <button v-on:click="counter--">-</button> <br>
+          {{getFullName()}} <br>
+          counter: 
+          {{counter}} <br>
+          <button v-on:click="counter--">-</button>
           <button v-on:click="counter++">+</button>
-        </div>
 
+        </div>
       </div>
     </div>
 </body>
@@ -48,53 +29,20 @@
     createApp({
         setup()
         {
-          let counter = ref(0);
-          function callMethod()
-          {
-            console.log("another method called");
-          }
-          
-          function callAnotherMethod()
-          {
-            console.log("V-If");
-            return false;
-          }
-          function callAnotherVElseIf()
-          {
-            console.log("V-Else-if");
-            return false;
-          }
-          function callAnotherVElse()
-          {
-            console.log("V-Else");
-            return false;
-          }
-
-          function applyDynamicStyle()
-          {
-            console.log("Called Dynamic style method");
+            let counter = ref(0);
+            let firstName = ref("Ben");
+            let lastName = ref("10");
+            function getFullName()
+            {
+              console.log("getFullName called");
+              
+              return firstName.value + " "+ lastName.value;
+            }
             return {
-              color:'red',
-              backgroundColor:'yellow'
-              }
-          }
-
-          function getData()
-          {
-            console.log("getData method invoked");
-            return "<i> Hi This is italics </i>";
-          }
-
-              return {
-                counter,
-                callMethod,
-                callAnotherMethod,
-                callAnotherVElseIf,
-                callAnotherVElse,
-                applyDynamicStyle,
-                getData
-              }
-          }
+              counter,
+              getFullName
+            }
+        }
       }).mount("#app");
 </script>
 <style>
