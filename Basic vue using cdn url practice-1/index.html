@@ -24,7 +24,7 @@
     </div>
 </body>
 <script>
-    const {createApp,ref,reactive,computed,watch} = Vue
+    const {createApp,ref,reactive,computed} = Vue
 
     createApp({
         setup()
@@ -39,16 +39,6 @@
               
               return firstName.value + " "+ lastName.value;
             });
-            //  we have implemented a getter here, which is ()=> counter.value , if it is ref, reactive object, array of that types then it will work but for others we need to use counter.value, since we know that counter is a ref even if we change that from counter.value to counter now then also it works since it works with ref's.
-            watch(()=>obj.value,(newVal,oldVal)=> {
-              console.log(`changed from ${oldVal} to ${newVal}`);
-
-              if(newVal === 4)
-              {
-                alert("The newVal is 4");
-              }
-            });
-
             return {
               counter,
               getFullName,
