@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :style="isFavourite? {'background-color': '#DC143C'} : ''">
+  <div class="container">
     <h3>Contact</h3>
     <p>Name is: {{ name }}</p>
     <p>Phone is: {{ phone }}</p>
@@ -8,6 +8,9 @@
     <p v-if="ownerName!==''">
         Owner name is {{ ownerName }}
     </p>
+    <button v-bind:style="isFavourite? {'background-color':'red','color':'white'} : ''">  
+      {{ isFavourite? 'Remove From Favourites' : 'Add to Favourites' }}
+    </button>
   </div>
 </template>
 

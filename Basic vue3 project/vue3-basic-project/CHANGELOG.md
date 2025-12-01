@@ -6,3 +6,4 @@
 ### [personal-1.5] rendered the code with a javascript object being passed as props.
 ### [personal-1.6] making sure that the values gets updated even if we change that in the parent.
 ### [peronal-1.7] small explanation written on ref in component communication in README.md
+### [personal-1.8] added the background color and color of favourites object passed as prop.
