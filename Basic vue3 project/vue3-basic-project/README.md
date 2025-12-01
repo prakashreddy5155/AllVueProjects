@@ -4,3 +4,5 @@
 #### example: const props = defineProps({name:String,phone:Number})
 #### if we pass <contact name="om sai prakash" :phone="123123" :ownerName="1234user"> </contact>
 #### if we want to pass a number and it should treat it like a string but we have used v-bind:ownerName or :ownerName in this scenario we need to make :ownerName="'1234user'" like this, we need to use single quotes inside.
+
+### [personal-1.4] - advanced validation of props inside the defineprops, we can provide an object and can pass required: true/false, type: String/Number or other and default property for non mandatory prop

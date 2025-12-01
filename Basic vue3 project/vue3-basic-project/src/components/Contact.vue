@@ -1,12 +1,14 @@
 <template>
-  <h3>Contact</h3>
-  <p>Name is: {{ name }}</p>
-  <p>Phone is: {{ phone }}</p>
-  Hey, Hi Thanks for reaching out !
-  Please contact on {{ email }}
-  <p v-if="ownerName!==''">
-      Owner name is {{ ownerName }}
-  </p>
+  <div class="container">
+    <h3>Contact</h3>
+    <p>Name is: {{ name }}</p>
+    <p>Phone is: {{ phone }}</p>
+    Hey, Hi Thanks for reaching out !
+    Please contact on {{ email }}
+    <p v-if="ownerName!==''">
+        Owner name is {{ ownerName }}
+    </p>
+  </div>
 </template>
 
 <script setup>
@@ -15,6 +17,27 @@ import {ref} from "vue";
 
   let email = ref("notKnown@gmail.com");
   // validating the passedProps
-  const props = defineProps({"name":String,"phone":Number,"ownerName":String});
+  const props = defineProps({
+    "name":{
+      type:String,
+      required:true,
+    },
+    "phone":{
+      type:Number,
+      required:true,
+    },
+    "ownerName":{
+      type:String,
+      required:false,
+      default:'N/A'
+    }
+  });
   
 </script>
+
+<style>
+  .container
+  {
+    background-color:rgb(98, 98, 237);
+  }
+</style>
