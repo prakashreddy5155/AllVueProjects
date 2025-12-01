@@ -1,17 +1,18 @@
 <template>
-
-<h3>Contact</h3>
-<p>Name is: {{ name }}</p>
-<p>Phone is: {{ phone }}</p>
- Hey, Hi Thanks for reaching out !
- Please contact on {{ email }}
- 
+  <h3>Contact</h3>
+  <p>Name is: {{ name }}</p>
+  <p>Phone is: {{ phone }}</p>
+  Hey, Hi Thanks for reaching out !
+  Please contact on {{ email }}
+  <p v-if="ownerName!==''">
+      Owner name is {{ ownerName }}
+  </p>
 </template>
 
 <script setup>
 
 import {ref} from "vue";
 
-    let email = ref("notKnown@gmail.com");
-    const props = defineProps(["name","phone"]);
+  let email = ref("notKnown@gmail.com");
+  const props = defineProps(["name","phone","ownerName"]);
 </script>
