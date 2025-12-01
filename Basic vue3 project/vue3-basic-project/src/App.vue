@@ -1,13 +1,10 @@
 <template>
 
 <div> {{ greet }}</div> <br>
-<ContactUs></ContactUs> <br>
-<ButtonCounter></ButtonCounter>
-<ButtonCounter></ButtonCounter>
+<Contact name="om sai prakash" phone="111222333"></Contact>
 </template>
 <script setup>
-import ButtonCounter from './components/ButtonCounter.vue';
-import ContactUs from './components/ContactUs.vue';
+import Contact from './components/Contact.vue';
 
     const greet = "Hello";
         </script>
