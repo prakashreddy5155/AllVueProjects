@@ -3,15 +3,9 @@
 <button v-on:click="count++"> count is {{ count }} </button>
 
 </template>
-<script>
+<script setup>
 import {ref} from "vue";
-export default {
-    setup()
-    {
-        let count = ref(0);
-        return {
-            count
-        }
-    }
-}
+
+    let count = ref(0);
+
 </script>

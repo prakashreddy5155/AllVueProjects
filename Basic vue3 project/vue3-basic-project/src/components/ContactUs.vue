@@ -3,17 +3,9 @@
  Please contact on {{ email }}
 </template>
 
-<script>
+<script setup>
 
 import {ref} from "vue";
 
-export default {
-    setup()
-    {
-        let email = ref("notKnown@gmail.com");
-        return{
-            email
-        }
-    }
-}
+    let email = ref("notKnown@gmail.com");
 </script>

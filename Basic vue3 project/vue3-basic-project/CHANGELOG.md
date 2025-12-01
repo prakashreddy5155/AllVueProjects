@@ -1,0 +1,1 @@
+### [personal-1.0] used script setup to reduce the boilerplate and increase the performance.
