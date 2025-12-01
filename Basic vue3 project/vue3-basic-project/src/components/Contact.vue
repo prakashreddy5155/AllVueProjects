@@ -14,5 +14,7 @@
 import {ref} from "vue";
 
   let email = ref("notKnown@gmail.com");
-  const props = defineProps(["name","phone","ownerName"]);
+  // validating the passedProps
+  const props = defineProps({"name":String,"phone":Number,"ownerName":String});
+  
 </script>
