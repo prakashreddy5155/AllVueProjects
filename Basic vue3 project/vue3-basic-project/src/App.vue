@@ -1,15 +1,16 @@
 <template>
 
 <div> {{ greet }}</div> <br>
-<contact-us>  </contact-us> <br>
-<button-counter></button-counter>
-<button-counter></button-counter>
+<ContactUs></ContactUs> <br>
+<ButtonCounter></ButtonCounter>
+<ButtonCounter></ButtonCounter>
 </template>
 <script>
 import ButtonCounter from './components/ButtonCounter.vue';
+import ContactUs from './components/ContactUs.vue';
 
 export default{
-  components: { ButtonCounter },
+  components: { ButtonCounter,ContactUs },
     setup()
     {
         const greet = "Hello";

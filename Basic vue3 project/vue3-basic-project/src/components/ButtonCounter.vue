@@ -6,7 +6,6 @@
 <script>
 import {ref} from "vue";
 export default {
-
     setup()
     {
         let count = ref(0);
