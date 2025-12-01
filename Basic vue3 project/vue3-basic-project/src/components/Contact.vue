@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :style="isFavourite? {'background-color': '#DC143C'} : ''">
     <h3>Contact</h3>
     <p>Name is: {{ name }}</p>
     <p>Phone is: {{ phone }}</p>
@@ -30,6 +30,10 @@ import {ref} from "vue";
       type:String,
       required:false,
       default:'N/A'
+    },
+    "isFavourite":{
+      type:Boolean,
+      required:false
     }
   });
   
