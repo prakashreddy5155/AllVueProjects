@@ -21,3 +21,88 @@
 #### easy example: lets say we have passed isFavorite as false to the child, but when user clicks on the Add To Favourite button then the isFavourite should be turned to true. in that case what we can do is we can create one emit in the child component, and then we can trigger that emit through a function when a button click is happened and through that we can pass the data from the child component to the parent component and modify that data and can update the data, so since some change is triggered in the parent component which child is dependant on, so Vue re-renders it and displays the updated data.
 
 #### As I have told, we can even pass the data from the child component to the parent component which was actually passed to the child component before, then we can update the data passed and store the updated data and due to which new render happens and displays the updated data, this is what the communication between the child to parent looks like. 
+
+### [personal-2.0] - passing the data to the parent component from child component and modifying the data accordingly. like we can pass the data while emit('emitName',dataOfChild) 
+#### this can be taken by the parent like @emit-name=objectParentToChange=updateIsFavourite($event), here we will get all the passed values in the $event, we can have function like 
+#### function updateIsFavourite(dataFromChild)
+#### {
+####  return !dataFromChild    
+#### }
+
+#### if we have more parameters from the parent which is unrelated to the data then also we can pass 
+
+```javascript 
+// parent component code.
+<div v-for="contact in contacts" :key="contacts.name">
+<contact 
+    :isFavourite="contact.isFavourite"
+    :name="contact.name"
+    :phone="contact.phone"
+    :owner-name="contact.ownerName"
+    :is-favourite="contact.isFavourite"
+    @update-favourite="contact.isFavourite=updateFavourite($event)"
+> </contact>
+
+
+<script setup>
+    // lets say some other code is present, not emphasizing on that 
+
+    function updateFavourite(dataFromChildComponent) 
+    {
+        return !dataFromChildComponent;
+    }
+</script>
+```
+
+```javascript 
+
+// child component code 
+<template>
+  <div class="container">
+    <h3>Contact</h3>
+    <p>Name is: {{ name }}</p>
+    <p>Phone is: {{ phone }}</p>
+    Hey, Hi Thanks for reaching out !
+    Please contact on {{ email }}
+    <p v-if="ownerName!==''">
+        Owner name is {{ ownerName }}
+    </p>
+    <button v-bind:style="isFavourite? {'background-color':'red','color':'white'} : ''"
+    v-on:click="toggleFavourite()">  
+      {{ isFavourite? 'Remove From Favourites' : 'Add to Favourites' }}
+    </button>
+  </div>
+</template>
+
+    <script> 
+
+        const props = defineProps[{
+
+                "name":{
+      type:String,
+      required:true,
+    },
+    "phone":{
+      type:Number,
+      required:true,
+    },
+    "ownerName":{
+      type:String,
+      required:false,
+      default:'N/A'
+    },
+    "isFavourite":{
+      type:Boolean,
+      required:false
+    }
+    }];
+        
+        // other code
+
+        const emit = defineEmits(['update-favourite']);
+        function toggleFavourite()
+        {
+            emit('update-favourite',props.isFavourite)
+        }
+        </script>
+```

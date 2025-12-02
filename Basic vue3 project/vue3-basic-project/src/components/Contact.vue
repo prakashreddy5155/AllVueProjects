@@ -41,10 +41,10 @@ import {ref} from "vue";
     }
   });
 
-  const emit = defineEmits("update-favourite");
+  const emit = defineEmits(["update-favourite"]);
   function toggleFavourite()
   {
-    emit("update-favourite");
+    emit("update-favourite",props.isFavourite);
   }
   
 </script>

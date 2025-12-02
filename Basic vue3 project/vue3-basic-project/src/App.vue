@@ -10,7 +10,7 @@
         :phone="contact.phone"
         :owner-name="contact.ownerName"
         :is-favourite="contact.isFavourite"
-        @update-favourite="contact.isFavourite=!contact.isFavourite"
+        @update-favourite="contact.isFavourite=updateFavourite($event)"
         >
       </Contact>
     </div>
@@ -43,4 +43,10 @@ import {ref,reactive} from 'vue';
       isFavourite:false
     }
   ])
+
+  function updateFavourite(isFavouriteParamFromChild)
+  {
+    console.log(isFavouriteParamFromChild);
+    return !isFavouriteParamFromChild;
+  }
 </script>
