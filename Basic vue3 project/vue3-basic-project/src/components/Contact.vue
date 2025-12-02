@@ -44,7 +44,7 @@ import {ref} from "vue";
   const emit = defineEmits(["update-favourite"]);
   function toggleFavourite()
   {
-    emit("update-favourite",props.isFavourite);
+    emit("update-favourite",[props.isFavourite,props.name]);
   }
   
 </script>

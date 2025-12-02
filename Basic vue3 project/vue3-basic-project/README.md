@@ -106,3 +106,4 @@
         }
         </script>
 ```
+### [personal-2.1] - if we want to pass some other value which is part of the parent component while sending $event we can pass that also like updateFavourite($event, contacts.phoneNumber) I can also do that. by that that will send the value of that contact.phoneNumber which is specific to that prop.
