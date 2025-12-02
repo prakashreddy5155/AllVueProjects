@@ -9,7 +9,7 @@
         Owner name is {{ ownerName }}
     </p>
     <button v-bind:style="isFavourite? {'background-color':'red','color':'white'} : ''"
-    v-on:click="toggleFavourite()">  
+    v-on:click="emit('update-favourite',{favourite: props.isFavourite,name: props.name})">  
       {{ isFavourite? 'Remove From Favourites' : 'Add to Favourites' }}
     </button>
   </div>
@@ -42,10 +42,7 @@ import {ref} from "vue";
   });
 
   const emit = defineEmits(["update-favourite"]);
-  function toggleFavourite()
-  {
-    emit("update-favourite",{favourite: props.isFavourite,name: props.name});
-  }
+
   
 </script>
 
