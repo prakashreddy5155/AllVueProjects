@@ -7,3 +7,4 @@
 ### [personal-1.6] making sure that the values gets updated even if we change that in the parent.
 ### [peronal-1.7] small explanation written on ref in component communication in README.md
 ### [personal-1.8] added the background color and color of favourites object passed as prop.
+### [personal-1.9] passing the emit so that the if any change happens in the child component then the parent component will know that and based on that it updates the value of the parent component and inturn triggers the new render leading to the values getting updated.
