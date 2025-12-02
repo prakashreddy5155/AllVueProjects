@@ -10,3 +10,4 @@
 ### [personal-1.9] passing the emit so that the if any change happens in the child component then the parent component will know that and based on that it updates the value of the parent component and inturn triggers the new render leading to the values getting updated.
 ### [personal-2.0] corrected the previous version on defining emits names inside defineEmits and passing the data to the parent from child and changing that value and storing that to the parent.
 ### [personal-2.1] passing array as the emit data, and passing some other data as well of parent.
+### [personal-2.2] passing object as the emit data from child to parent.

@@ -47,8 +47,6 @@ import {ref,reactive} from 'vue';
   function updateFavourite(paramFromChildObject,phoneFromParent)
   {
     console.log(paramFromChildObject);
-    console.log(phoneFromParent);
-    return !paramFromChildObject[0];
-
+    return !paramFromChildObject.favourite;
   }
 </script>
