@@ -1,6 +1,11 @@
 <template>
 
+
   <div> {{ greet }}</div> <br>
+
+    <AddComponent 
+      @add-component-trigger="handleAddComponent($event)"
+    > </AddComponent>
 
   <input type="text" v-model="ownerName">
   <div class="rowsContainer">
@@ -18,6 +23,7 @@
 </template>
 
 <script setup>
+import AddComponent from './components/AddComponent.vue';
 import Contact from './components/Contact.vue';
 import {ref,reactive} from 'vue';
 
@@ -48,5 +54,9 @@ import {ref,reactive} from 'vue';
   {
     console.log(paramFromChildObject);
     return !paramFromChildObject.favourite;
+  }
+  function handleAddComponent(dataFromParent)
+  {
+    contacts.push(dataFromParent);
   }
 </script>

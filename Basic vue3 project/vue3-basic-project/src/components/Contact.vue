@@ -42,7 +42,7 @@ import {ref} from "vue";
   });
 
   const emit = defineEmits(["update-favourite"]);
-
+  
   
 </script>
 

@@ -12,3 +12,4 @@
 ### [personal-2.1] passing array as the emit data, and passing some other data as well of parent.
 ### [personal-2.2] passing object as the emit data from child to parent.
 ### [personal-2.3] inline emit 
+### [personal-2.4] created a AddComponent which works by passing emit data from child to parent. 
