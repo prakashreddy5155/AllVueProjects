@@ -3,7 +3,12 @@
 
   <div> {{ greet }}</div> <br>
 
-    <LuckyNumber :max-number="500"> </LuckyNumber>
+  <div>
+    <span>Enter the data in the input to generate the lucky Number till that range</span>
+    <br>
+    <input type="number" v-model.number="maxLuckyNumber" > 
+  </div>
+  <br>
 
     <AddComponent 
       @add-component-trigger="handleAddComponent($event)"
@@ -17,6 +22,7 @@
         :phone="contact.phone"
         :owner-name="contact.ownerName"
         :is-favourite="contact.isFavourite"
+        :max-lucky-number="maxLuckyNumber"
         @update-favourite="contact.isFavourite=updateFavourite($event,contact.phone)"
         >
       </Contact>
@@ -51,7 +57,8 @@ import LuckyNumber from './components/LuckyNumber.vue';
       ownerName: ownerName,
       isFavourite:false
     }
-  ])
+  ]);
+  let maxLuckyNumber = ref(0);
 
   function updateFavourite(paramFromChildObject,phoneFromParent)
   {

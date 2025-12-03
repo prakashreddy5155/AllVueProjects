@@ -12,13 +12,15 @@
     v-on:click="emit('update-favourite',{favourite: props.isFavourite,name: props.name})">  
       {{ isFavourite? 'Remove From Favourites' : 'Add to Favourites' }}
     </button>
+
+    <LuckyNumber :max-lucky-number="maxLuckyNumber"> </LuckyNumber>
   </div>
 </template>
 
 <script setup>
 
 import {ref} from "vue";
-
+import LuckyNumber from "./LuckyNumber.vue";
   let email = ref("notKnown@gmail.com");
   // validating the passedProps
   const props = defineProps({
@@ -38,6 +40,10 @@ import {ref} from "vue";
     "isFavourite":{
       type:Boolean,
       required:false
+    },
+    "maxLuckyNumber":{
+      type:Number,
+      required:false,
     }
   });
 

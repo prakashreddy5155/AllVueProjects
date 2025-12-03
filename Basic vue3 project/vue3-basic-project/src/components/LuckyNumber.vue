@@ -4,7 +4,7 @@
     >
     <span v-if="luckyNumber===0">
         Generate Lucky Number from <br>
-        1 - {{ maxNumber }}    
+        1 - {{ maxLuckyNumber }}    
     </span>
 
     <span v-else>
@@ -21,7 +21,7 @@ const luckyNumber = ref(0);
 
 const props = defineProps({
 
-    maxNumber:{
+    maxLuckyNumber:{
         type:Number,
         required:false,
         default:10
@@ -30,6 +30,6 @@ const props = defineProps({
 
 function generateLuckyNumber()
 {
-    luckyNumber.value = Math.ceil(Math.random() * props.maxNumber)
+    luckyNumber.value = Math.ceil(Math.random() * props.maxLuckyNumber)
 }
 </script>
