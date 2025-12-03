@@ -22,7 +22,6 @@
         :phone="contact.phone"
         :owner-name="contact.ownerName"
         :is-favourite="contact.isFavourite"
-        :max-lucky-number="maxLuckyNumber"
         @update-favourite="contact.isFavourite=updateFavourite($event,contact.phone)"
         >
       </Contact>
@@ -33,8 +32,7 @@
 <script setup>
 import AddComponent from './components/AddComponent.vue';
 import Contact from './components/Contact.vue';
-import {ref,reactive} from 'vue';
-import LuckyNumber from './components/LuckyNumber.vue';
+import {ref,reactive,provide} from 'vue';
 
   const greet = "Hello";
   const ownerName= ref("Mr.Rebel");
@@ -59,7 +57,7 @@ import LuckyNumber from './components/LuckyNumber.vue';
     }
   ]);
   let maxLuckyNumber = ref(0);
-
+  provide('maxLuckyNumber',maxLuckyNumber);
   function updateFavourite(paramFromChildObject,phoneFromParent)
   {
     console.log(paramFromChildObject);

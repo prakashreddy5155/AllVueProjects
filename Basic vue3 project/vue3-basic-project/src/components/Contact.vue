@@ -13,13 +13,13 @@
       {{ isFavourite? 'Remove From Favourites' : 'Add to Favourites' }}
     </button>
 
-    <LuckyNumber :max-lucky-number="maxLuckyNumber"> </LuckyNumber>
+    <LuckyNumber> </LuckyNumber>
   </div>
 </template>
 
 <script setup>
 
-import {ref} from "vue";
+import {ref,inject} from "vue";
 import LuckyNumber from "./LuckyNumber.vue";
   let email = ref("notKnown@gmail.com");
   // validating the passedProps
@@ -41,14 +41,9 @@ import LuckyNumber from "./LuckyNumber.vue";
       type:Boolean,
       required:false
     },
-    "maxLuckyNumber":{
-      type:Number,
-      required:false,
-    }
   });
 
   const emit = defineEmits(["update-favourite"]);
-  
   
 </script>
 

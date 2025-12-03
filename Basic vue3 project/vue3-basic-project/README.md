@@ -117,3 +117,40 @@
 ### [personal-2.5] - create a luckyNumber generator component and add that in the parent App.vue component which takes a max luckyNumber and based on the props passed it works.
 
 ###  [personal-2.6] - add the luckyNumber component in the Contact component, which requires the prop that will be passed from the parent commponent App.vue by taking the input from the inputbox from App.vue and based on that data entered in the input the luckyNumber gets generated, but here the luckyNumber component is removed from the parent now, but it is now added in the Contact.vue component but the data would be sent from the App.vue  so basically App.vue send the luckyNumber range from App.vue to contact.vue and contact.vue sends that to the grandChild that is LuckyNumber.vue and that's how it happens
+
+### [personal-2.7] - 
+
+### [important-things-to-remember] : when you pass a ref object as a prop to another component then by default vue unwraps that ref to the value, so the actual value is sent instead of ref object vue does this internally , but when you use provide and inject then vue doesn't unwrap the ref, you need to either send it as a refObject.value or send the ref and receieve that when using inject 
+
+### [important-things-to-remember] : Inorder to use provide and inject we should have a parent and child relationship, if parent and child relationship is not present then we can't use the provide and inject, provide and inject is designed to use a object or value with out sending props to deep nested components, which is in-efficient. 
+
+#### example: lets say we have componentB inside componentA but componentB has componentC as well inside it and componentC has ComponentD inside it, lets say when user enters something in the inputBox of componentA which is the most outer parent, then lets say we want to send that data entered from mostouterparentA to mostInnerChildComponentD then we can use provide and inject here, but this provide and inject can be used only for child parent relationships. cannot be used for sibiling components or we can't put provide inside the child and can inject that to parent.
+```javascript 
+const maxLuckyNum = inject('maxLuckyNumber'); // here we would get as a ref object itself no unwrapping happens. 
+
+// to use that value you need to use like maxLuckyNum.value
+// but inorder to be reflected properly in the places where you're injecting, while providing using provide you need to send the ref object not the refObject.value.
+```
+```javascript
+Example: 
+// parent where I am sending a ref
+
+<input type = "number" v-model.number="maxNumber" />
+
+<script setup>
+  import {ref} from 'vue';
+  const maxNumber = ref(0); 
+
+  provide('maxLuckyNumber',maxNumber); // I should pass like maxNumber only not maxNumber.value, if i do maxNumber.value then it wont get properly updated when we dynamically change that maxNumber with any input like in this case.
+  </script>
+```
+
+```javascript
+  // child component where I am using that provided value.
+
+  // inside the script setup
+  const maxLuckyNum = inject('maxLuckyNumber');
+
+  // If i want to use that maxLuckyNum then I need to use that as maxLuckyNum.value because it is sent as ref only no unwrapping happens for the provide and inject
+```
+
