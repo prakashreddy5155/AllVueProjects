@@ -13,3 +13,4 @@
 ### [personal-2.2] passing object as the emit data from child to parent.
 ### [personal-2.3] inline emit 
 ### [personal-2.4] created a AddComponent which works by passing emit data from child to parent. 
+### [personal-2.5] - created a new component LuckyNumber.vue which takes a prop and based on that passed prop it generates luckyNumbers till that range

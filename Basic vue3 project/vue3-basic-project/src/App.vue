@@ -3,6 +3,8 @@
 
   <div> {{ greet }}</div> <br>
 
+    <LuckyNumber :max-number="500"> </LuckyNumber>
+
     <AddComponent 
       @add-component-trigger="handleAddComponent($event)"
     > </AddComponent>
@@ -26,6 +28,7 @@
 import AddComponent from './components/AddComponent.vue';
 import Contact from './components/Contact.vue';
 import {ref,reactive} from 'vue';
+import LuckyNumber from './components/LuckyNumber.vue';
 
   const greet = "Hello";
   const ownerName= ref("Mr.Rebel");

@@ -114,6 +114,6 @@
 
 ### [personal-2.4] - when the Submit button is clicked, the handleForm is triggered which emits the object and that object is pushed into the contacts array which we are using a v-for to render the contact component since, the other data is also there so the component gets rendered and the new component will starts showing.
 
-### TODO [personal-2.5] - create a luckyNumber generator component and add that in the parent App.vue component which takes a max luckyNumber and based on the props passed it works.
+### [personal-2.5] - create a luckyNumber generator component and add that in the parent App.vue component which takes a max luckyNumber and based on the props passed it works.
 
 ### TODO [personal-2.6] - add the luckyNumber component in the Contact component, which requires the prop that will be passed from the parent commponent App.vue by taking the input from the inputbox from App.vue and based on that data entered in the input the luckyNumber gets generated, but here the luckyNumber component is removed from the parent now, but it is now added in the Contact.vue component but the data would be sent from the App.vue  so basically App.vue send the luckyNumber range from App.vue to contact.vue and contact.vue sends that to the grandChild that is LuckyNumber.vue and that's how it happens
