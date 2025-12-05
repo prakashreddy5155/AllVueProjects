@@ -11,7 +11,7 @@
   <br>
 
     <AddComponent 
-      @add-component-trigger="handleAddComponent($event)"
+      :handleAddComponent="handleAddComponent"
     > </AddComponent>
 
   <input type="text" v-model="ownerName">

@@ -35,7 +35,12 @@ const contact = reactive({
     isFavourite:''
 });
 
-const emit = defineEmits(['add-component-trigger']);
+const props = defineProps({
+  handleAddComponent:  {
+    type:Function,
+    required:true
+ }
+})
 
 function clearContents()
 {
@@ -46,10 +51,11 @@ function clearContents()
 }
 function handleForm()
 {
-    emit('add-component-trigger',{
+    
+    props.handleAddComponent({
         name:contact.name,
         phone:contact.phone,
-        ownerName:contact.ownerName,
+        ownerName: contact.ownerName,
         isFavourite:contact.isFavourite
     });
     clearContents();

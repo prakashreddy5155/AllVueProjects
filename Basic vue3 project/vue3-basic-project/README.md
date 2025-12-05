@@ -154,3 +154,4 @@ Example:
   // If i want to use that maxLuckyNum then I need to use that as maxLuckyNum.value because it is sent as ref only no unwrapping happens for the provide and inject
 ```
 
+### [personal-2.8] - passing a method as a prop to the child component and calling that method from the child component to perform some task.
