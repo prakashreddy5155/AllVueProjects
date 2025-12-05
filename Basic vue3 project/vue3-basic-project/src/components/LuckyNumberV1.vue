@@ -1,6 +1,12 @@
 <template>
-    <h3>{{propObject.luckyNumber}} Component</h3> </br>
-    prop Data: {{ propObject}} <br> <br>
+
+    <h3> {{ propObject.name }}  Component</h3>
+        Version: {{ propObject.version }}
+
+    <div>
+        <input type="number" v-model="maxLuckyNumber">
+    </div>
+
     <button
     v-on:click="generateLuckyNumber()"
     >
@@ -21,20 +27,20 @@
 import {ref,defineProps} from 'vue'
 const luckyNumber = ref(0);
 
-const maxLuckyNumber = ref(100);
-
+let maxLuckyNumber = ref(0);
 
 const props = defineProps({
-    propObject:{
-        type:String,
+    propObject :{
+        type:Object,
         required:false,
-        default:'LuckyNumber Om Sai '
+        default:{}
     }
 })
 
 function generateLuckyNumber()
-{ 
+{
     luckyNumber.value = Math.ceil(Math.random() * maxLuckyNumber.value)
 }
+
 
 </script>

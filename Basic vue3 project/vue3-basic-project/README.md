@@ -155,3 +155,5 @@ Example:
 ```
 
 ### [personal-2.8] - passing a method as a prop to the child component and calling that method from the child component to perform some task.
+
+### [personal-2.9] - we can be able to render two different component using <component :is=""/> and we can pass a computed property into that and based on some condition we can return a component from the computed property and that gets rendered and also using a single component we can dynamically pass props based on a condition also.

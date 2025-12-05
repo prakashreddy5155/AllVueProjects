@@ -17,3 +17,4 @@
 ### [personal-2.6] - modified the code to put the luckyNumber into the contact.vue component and passed the prop from App.vue to contact.vue and from contact.vue to LuckyNumber.vue
 ### [personal-2.7] - implementation using provide and inject, remember provide and inject can be only used for parent -> child relationship, parent provides and child injects. this can be nested till any level. any ancestor an any child
 ### [personal-2.8] - Passed a method to a child component and calling that method from the child component to perform a task.
+### [personal-2.9] - passed props and rendering component dynamically based on a condition.
