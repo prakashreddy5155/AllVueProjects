@@ -2,28 +2,44 @@
   <h1>
     App.vue
   </h1>
-  <LuckyNumberParentComponent>
-    <template v-slot:default>
-      <p>This is LuckyNumber Parent Component</p>
-      <p>Yes This is cool</p>
-    </template>
-      <template v-slot:slot1>
-        <h6>
-          This is slot 1
-        </h6>
-        <button> This is button</button>
-      </template>
-      <template v-slot:slot2>
-        <h5>
-          This is slot 2
-        </h5>
-        <button> Click me </button>
-      </template>
-  </LuckyNumberParentComponent>
+  <ButtonCounter> </ButtonCounter>
 </template>
 
 <script setup>
-import LuckyNumberParentComponent from './components/LuckyNumberParentComponent.vue';
+import ButtonCounter from './components/ButtonCounter.vue';
+import { onBeforeMount,onMounted,onBeforeUpdate,onUpdated,onBeforeUnmount,onUnmounted } from 'vue';
+
+
+onBeforeMount(() => 
+{
+  console.log("BeforeMount - App.vue");
+});
+
+onMounted(() => 
+{
+  console.log("onMounted - App.vue");
+});
+
+onBeforeUpdate(() => 
+{
+  console.log("onBeforeUpdate - App.vue");
+});
+
+onUpdated(() => 
+{
+  console.log("onUpdated - App.vue");
+});
+
+onBeforeUnmount(() => 
+{
+  console.log("onBeforeUnMount - App.vue");
+});
+
+onUnmounted(() => 
+{
+  console.log("onUnmounted - App.vue");
+});
+
 
 </script>
 <style>

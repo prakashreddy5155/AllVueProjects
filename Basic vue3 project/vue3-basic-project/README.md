@@ -247,3 +247,8 @@ LuckyNumberParentComponent.vue
 
 ### [personal-3.6] - scoped keyword relevence in the style tag.
 #### if you have a style tag, in the vue component and through that we know that you can apply styling to the component tagging with classes or direct tags. lets say you have not added scoped to the style, then the css that you write will be globally applied to all the components present. lets say we have grandparent component and parent and child and you have targetted h1 tag in the child component and colored the text blue, lets say parent and grandParent also has h1 tags due to which in parent and grandparent also the style applies though you have written the style in the child component, this is the disadvantage. that is why you should you scoped, if you use scoped then the styling gets applied only to that component not the other components also.
+
+### [personal-3.7] - clean up
+
+### [personal-3.8] - life cycle hooks of vue.js.
+#### it is recommended to make api calls to get the data from the server inside the onMounted() life cycle hook, because this happens after the application is mounted and every computed property and methods are already present.

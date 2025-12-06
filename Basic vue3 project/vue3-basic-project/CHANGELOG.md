@@ -25,3 +25,5 @@
 ### [personal-3.4] - slots, named slots , default slots.
 ### [personal-3.5] - default slots.
 ### [personal-3.6] - scoped keyword relevence in the style tag.
+### [personal-3.7] - clean up
+### [personal-3.8] - life cycle hooks of vue and its example with a parent and child component
