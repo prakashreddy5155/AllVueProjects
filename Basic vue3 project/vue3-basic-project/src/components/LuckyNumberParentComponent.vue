@@ -41,7 +41,7 @@ const renderPropsDynamically = computed(()=>
 
 </script>
 
-<style>
+<style scoped>
 .container 
 {
   text-align: center;
