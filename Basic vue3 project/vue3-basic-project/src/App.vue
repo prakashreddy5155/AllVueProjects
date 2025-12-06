@@ -1,7 +1,9 @@
 <template>
   <LuckyNumberParentComponent>
+    <template v-slot:default>
       <p>This is LuckyNumber Parent Component</p>
       <p>Yes This is cool</p>
+    </template>
       <template v-slot:slot1>
         <h6>
           This is slot 1

@@ -242,3 +242,5 @@ LuckyNumberParentComponent.vue
 <slot name="slotName"> </slot> // whatever template you have created with this slot name that gets rendered here. 
 // you can create any number of slots, but you can have one default slot as well, if you want default slot then,you should not put anyother tags outside the default template slot passing from parent. everytag should be inside template only. it is written like <template v-slot:default> <template> but makesure anyother html codes are inside other template or this only because it wont work if not.
 ```
+### [personal-3.5] - default slots 
+#### for default slots one constraint is that, nothing should be outside the default template or the template which are present inside the component. <LuckyNumberParentComponent> </LuckyNumberParentComponent>
