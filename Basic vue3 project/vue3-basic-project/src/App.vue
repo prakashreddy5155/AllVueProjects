@@ -1,45 +1,36 @@
 <template>
   <h1>
-    App.vue
+    App.vue Component
   </h1>
+
+    <div class="counterContainer">
+
+      <h4>  {{ counter }} </h4>
+      <button @click="increment"> Increment by 10 Each</button>
+      <button @click="decrement"> Decrement by 10 Each </button>
+
+    </div>
+
+  <h2> Button Counter Component</h2>
   <ButtonCounter> </ButtonCounter>
+
+   
 </template>
 
 <script setup>
+import {ref} from 'vue';
 import ButtonCounter from './components/ButtonCounter.vue';
-import { onBeforeMount,onMounted,onBeforeUpdate,onUpdated,onBeforeUnmount,onUnmounted } from 'vue';
 
 
-onBeforeMount(() => 
-{
-  console.log("BeforeMount - App.vue");
-});
+const counter  = ref(0);
 
-onMounted(() => 
-{
-  console.log("onMounted - App.vue");
-});
+const increment = () => {
+  counter.value += 10;
+}
 
-onBeforeUpdate(() => 
-{
-  console.log("onBeforeUpdate - App.vue");
-});
-
-onUpdated(() => 
-{
-  console.log("onUpdated - App.vue");
-});
-
-onBeforeUnmount(() => 
-{
-  console.log("onBeforeUnMount - App.vue");
-});
-
-onUnmounted(() => 
-{
-  console.log("onUnmounted - App.vue");
-});
-
+const decrement = () => {
+  counter.value-= 10;
+}
 
 </script>
 <style>

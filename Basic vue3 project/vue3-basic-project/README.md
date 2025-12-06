@@ -252,3 +252,7 @@ LuckyNumberParentComponent.vue
 
 ### [personal-3.8] - life cycle hooks of vue.js.
 #### it is recommended to make api calls to get the data from the server inside the onMounted() life cycle hook, because this happens after the application is mounted and every computed property and methods are already present.
+
+### [personal-3.8] - composible in vue.js is just a javascript file where we write the actual logic that needs to be completed and reuse that in the projects.
+
+### [personal-3.9] - with out using composible, I would have to create, one component and reuse that component but if i dont want entire component but just the code then it is not possible, we need to write the redundant code. here we have the increment and decrement in the App.vue as well as in the Button Counter Component.
