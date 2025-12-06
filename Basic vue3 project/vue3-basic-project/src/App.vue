@@ -18,19 +18,12 @@
 </template>
 
 <script setup>
-import {ref} from 'vue';
+
 import ButtonCounter from './components/ButtonCounter.vue';
 
+import { useCounter } from './components/composibles/useCounter';
 
-const counter  = ref(0);
-
-const increment = () => {
-  counter.value += 10;
-}
-
-const decrement = () => {
-  counter.value-= 10;
-}
+const {count:counter,increment,decrement} = useCounter(0,10);
 
 </script>
 <style>

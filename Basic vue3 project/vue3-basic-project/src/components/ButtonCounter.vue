@@ -12,14 +12,7 @@
 
 <script setup>
 
-  import {ref} from 'vue';
-  const count = ref(0);
+  import { useCounter } from './composibles/useCounter';
 
-  const increment = () => {
-    count.value++;
-  }
-
-  const decrement = () => {
-    count.value--;
-  }
+  const {count,increment,decrement} = useCounter(10,20);
 </script>

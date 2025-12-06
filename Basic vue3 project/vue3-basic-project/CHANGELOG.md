@@ -28,3 +28,4 @@
 ### [personal-3.7] - clean up
 ### [personal-3.8] - life cycle hooks of vue and its example with a parent and child component
 ### [personal-3.9] - Composibles in vue.js
+### [personal-4.0] - After using composibles.

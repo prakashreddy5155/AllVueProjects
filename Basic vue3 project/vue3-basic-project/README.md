@@ -256,3 +256,5 @@ LuckyNumberParentComponent.vue
 ### [personal-3.8] - composible in vue.js is just a javascript file where we write the actual logic that needs to be completed and reuse that in the projects.
 
 ### [personal-3.9] - with out using composible, I would have to create, one component and reuse that component but if i dont want entire component but just the code then it is not possible, we need to write the redundant code. here we have the increment and decrement in the App.vue as well as in the Button Counter Component.
+
+### [personal-4.0] - with using composibles we can reuse the code with same or slight changed functionality is required at different places.
