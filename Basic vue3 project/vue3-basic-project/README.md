@@ -161,7 +161,7 @@ Example:
 ### [personal-3.0] - created toggle buttons due to which the component can be changed based on we clicking them.
 #### [NOTE:] - we can be able to dynamically render either of two components or any number of component by using the <component :is="" /> here to the is we need to pass the component from the computed or function after checking the conditions and it renders. 
 #### [NOTE:] - we can pass props dynamically based on condition, we can pass certain set of props based on one condition and other set of props based on other condition here also we can pass any number of props, all we need to do is to connect that component with a method and that method returns the props dynamically.
-
+### [personal-3.1] - some tips: 
 ### [NOTE:] -  lets say we have a ref declared named const counter = ref(0) inside the <template> </template> if we need to access and increase that when click of a button then we just use 
 ```javascript
 <template> 
@@ -176,3 +176,20 @@ Example:
 ```
 
 #### If you see we dont have to use counter.value++ inside the template to increase the value, whenever you mention a ref inside the template then vue unwraps the actual value inside that ref, but inside the script you would have to use counter.value++ because inside script vue doesn't unwrap it.
+
+### [personal-3.2] - when we clicked on toggle component and we add some data into the new toggled component, but when we toggle back to old component and comeback then the data erases, because this just works like v-if it removes the entire component and re-renders it based on the condition, but if we want to keep the changes of the new component and old component then we need to put that inside the <keep-alive> </keep-alive> that will keep the data of the newer component and changes we made to it in memory and when we comeback by switching to old and then to new then it preserves the data that we entered.
+
+#### - but if we want to not preserve all of the components that we have but only few then we can use <keep-alive include="componentName" >    </keep-alive> here whatever component name we put inside the include that will be preserved and the remaining components data is not preserved, that way we can only include to preserve data in the memory only for the components that we want.
+
+### [personal-3.3] - if we want to keep alive some list of components not all, then we can use
+```javascript
+<keep-alive :include="['LuckyNumber','LuckyNumberV1']"> 
+  <component :is="renderComponentDynamically" :prop-object="renderPropsDynamically"></component>
+</keep-alive>
+```
+#### similar to include we also have exclude, we need to add dynamically so we have added :include not just include like before, similary we can do for exclude as well which excludes which components should be stayed in memory
+```javascript
+<keep-alive :include="['LuckyNumber','LuckyNumberV1']" :exclude=['componentName','componentName']> 
+  <component :is="renderComponentDynamically" :prop-object="renderPropsDynamically"></component>
+</keep-alive>
+```

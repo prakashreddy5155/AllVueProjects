@@ -7,7 +7,10 @@
     </div>
 
     <div class="container">
-      <component :is="renderComponentDynamically" :prop-object="renderPropsDynamically"></component>
+       <!-- This preserves only the component LuckyNumberV1 not LuckyNumber since those are the two components that are sent dynamically.-->
+      <keep-alive include="LuckyNumberV1"> 
+        <component :is="renderComponentDynamically" :prop-object="renderPropsDynamically"></component>
+      </keep-alive>
     </div>
   </div>
 </template>

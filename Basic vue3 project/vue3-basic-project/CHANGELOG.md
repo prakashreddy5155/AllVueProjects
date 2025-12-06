@@ -20,3 +20,4 @@
 ### [personal-2.9] - passed props and rendering component dynamically based on a condition.
 ### [personal-3.0] - created toggle buttons due to which the component can be changed based on we clicking them.
 ### [personal-3.1] - some tips
+### [personal-3.2] - preserving the data of the component by using keep-alive outside the <component> and include to preserve only the components that we pass as a parameter to include.
