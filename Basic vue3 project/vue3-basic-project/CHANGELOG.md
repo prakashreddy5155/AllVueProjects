@@ -22,3 +22,4 @@
 ### [personal-3.1] - some tips
 ### [personal-3.2] - preserving the data of the component by using keep-alive outside the <component> and include to preserve only the components that we pass as a parameter to include.
 ### [personal-3.3] - formatting
+### [personal-3.4] - slots, named slots , default slots.

@@ -5,13 +5,17 @@
       <button v-on:click="newVersion=false"> Switch to old version</button> <br>
       <button v-on:click="newVersion=true" >Switch to newer version</button>
     </div>
-
+    <slot> </slot>
     <div class="container">
        <!-- This preserves only the component LuckyNumberV1 not LuckyNumber since those are the two components that are sent dynamically.-->
       <keep-alive include="LuckyNumberV1"> 
         <component :is="renderComponentDynamically" :prop-object="renderPropsDynamically"></component>
       </keep-alive>
     </div>
+
+    <slot name="slot1"></slot>
+    <hr>
+    <slot name="slot2"></slot>
   </div>
 </template>
 

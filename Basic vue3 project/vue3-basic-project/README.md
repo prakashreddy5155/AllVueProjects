@@ -193,3 +193,52 @@ Example:
   <component :is="renderComponentDynamically" :prop-object="renderPropsDynamically"></component>
 </keep-alive>
 ```
+
+### [personal-3.4] - slots, named slots , default slots.
+#### I can be able to send some data inside the component that I am rendering using using slots. 
+#### lets say I have an App.vue component and inside that I am rendering a component named <LuckyNumberParentComponent> </LuckyNumberParentComponent> now inside this <LuckyNumberParentComponent> I can be able to send html data inside that component and the component LuckyNumberParentComponent.vue recevies that and can render that if wanted.
+
+#### Example: 
+```javascript 
+App.vue 
+<template> 
+  <LuckyNumberParentComponent>
+    <p> This is data from Parent </p> 
+    <p> Enjoy ! </p> 
+    <button> Enhanced </button>
+  </LuckyNumberParentComponent> 
+</template>
+```
+
+```javascript 
+LuckyNumberParentComponent.vue
+
+// all code of LuckyNumberParentComponent
+<slot> </slot> // this will make sure that the data that we are sending inside the component gets rendered here. 
+```
+
+#### named slots: 
+#### Example: 
+```javascript 
+App.vue 
+<template> 
+  <LuckyNumberParentComponent>
+    <p> This is data from Parent </p> 
+    <p> Enjoy ! </p> 
+   
+    <template v-slot:slotName>  // this slot name can be anything you want to give.
+      <p>This is slot1 </p>
+    </template>
+  </LuckyNumberParentComponent> 
+</template>
+```
+#### how to render named slots components: 
+
+```javascript 
+LuckyNumberParentComponent.vue
+
+// all code of LuckyNumberParentComponent
+<slot> </slot> // this will make sure that the data that we are sending inside the component gets rendered here. 
+<slot name="slotName"> </slot> // whatever template you have created with this slot name that gets rendered here. 
+// you can create any number of slots, but you can have one default slot as well, if you want default slot then,you should not put anyother tags outside the default template slot passing from parent. everytag should be inside template only. it is written like <template v-slot:default> <template> but makesure anyother html codes are inside other template or this only because it wont work if not.
+```
