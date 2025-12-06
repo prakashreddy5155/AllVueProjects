@@ -1,10 +1,15 @@
 <template>
+  <div class="container">
+    <div>
+      <button v-on:click="newVersion=!newVersion">Toggle Button</button> <br>
+      <button v-on:click="newVersion=false"> Switch to old version</button> <br>
+      <button v-on:click="newVersion=true" >Switch to newer version</button>
+    </div>
 
-
-<div class="container">
-  <component :is="renderComponentDynamically" :prop-object="renderPropsDynamically"></component>
-</div>
-
+    <div class="container">
+      <component :is="renderComponentDynamically" :prop-object="renderPropsDynamically"></component>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -27,3 +32,15 @@ const renderPropsDynamically = computed(()=>
 });
 
 </script>
+
+<style>
+.container 
+{
+  text-align: center;
+}
+
+.container div button 
+{
+  margin:5px;
+}
+</style>

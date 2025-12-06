@@ -157,3 +157,7 @@ Example:
 ### [personal-2.8] - passing a method as a prop to the child component and calling that method from the child component to perform some task.
 
 ### [personal-2.9] - we can be able to render two different component using <component :is=""/> and we can pass a computed property into that and based on some condition we can return a component from the computed property and that gets rendered and also using a single component we can dynamically pass props based on a condition also.
+
+### [personal-3.0] - created toggle buttons due to which the component can be changed based on we clicking them.
+#### [NOTE:] - we can be able to dynamically render either of two components or any number of component by using the <component :is="" /> here to the is we need to pass the component from the computed or function after checking the conditions and it renders. 
+#### [NOTE:] - we can pass props dynamically based on condition, we can pass certain set of props based on one condition and other set of props based on other condition here also we can pass any number of props, all we need to do is to connect that component with a method and that method returns the props dynamically.
