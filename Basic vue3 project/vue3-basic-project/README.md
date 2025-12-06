@@ -161,3 +161,18 @@ Example:
 ### [personal-3.0] - created toggle buttons due to which the component can be changed based on we clicking them.
 #### [NOTE:] - we can be able to dynamically render either of two components or any number of component by using the <component :is="" /> here to the is we need to pass the component from the computed or function after checking the conditions and it renders. 
 #### [NOTE:] - we can pass props dynamically based on condition, we can pass certain set of props based on one condition and other set of props based on other condition here also we can pass any number of props, all we need to do is to connect that component with a method and that method returns the props dynamically.
+
+### [NOTE:] -  lets say we have a ref declared named const counter = ref(0) inside the <template> </template> if we need to access and increase that when click of a button then we just use 
+```javascript
+<template> 
+  <button @click="counter++">  Increment</button>
+</template>
+
+<script setup> 
+  import {ref} from 'vue';
+  const counter = ref(0);
+
+</script>
+```
+
+#### If you see we dont have to use counter.value++ inside the template to increase the value, whenever you mention a ref inside the template then vue unwraps the actual value inside that ref, but inside the script you would have to use counter.value++ because inside script vue doesn't unwrap it.

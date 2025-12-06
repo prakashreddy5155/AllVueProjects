@@ -19,3 +19,4 @@
 ### [personal-2.8] - Passed a method to a child component and calling that method from the child component to perform a task.
 ### [personal-2.9] - passed props and rendering component dynamically based on a condition.
 ### [personal-3.0] - created toggle buttons due to which the component can be changed based on we clicking them.
+### [personal-3.1] - some tips
