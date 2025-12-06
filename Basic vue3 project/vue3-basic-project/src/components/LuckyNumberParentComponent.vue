@@ -1,4 +1,5 @@
 <template>
+  <h1>LuckyNumber Parent Component</h1>
   <div class="container">
     <div>
       <button v-on:click="newVersion=!newVersion">Toggle Button</button> <br>
@@ -49,5 +50,9 @@ const renderPropsDynamically = computed(()=>
 .container div button 
 {
   margin:5px;
+}
+h1 
+{
+  color:red;
 }
 </style>

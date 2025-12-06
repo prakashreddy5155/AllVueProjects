@@ -1,4 +1,7 @@
 <template>
+  <h1>
+    App.vue
+  </h1>
   <LuckyNumberParentComponent>
     <template v-slot:default>
       <p>This is LuckyNumber Parent Component</p>

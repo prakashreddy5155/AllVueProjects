@@ -24,3 +24,4 @@
 ### [personal-3.3] - formatting
 ### [personal-3.4] - slots, named slots , default slots.
 ### [personal-3.5] - default slots.
+### [personal-3.6] - scoped keyword relevence in the style tag.
