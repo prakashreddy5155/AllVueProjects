@@ -1,9 +1,10 @@
-<script setup></script>
+<script setup>
+  import Header from './components/Layouts/Header.vue';
+</script>
 
 <template>
-  Helloworld <br>
-
-  <RouterView> </RouterView>
+<Header></Header>
+<router-view></router-view>
 </template>
 
 

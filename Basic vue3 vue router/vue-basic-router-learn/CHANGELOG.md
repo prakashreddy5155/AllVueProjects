@@ -9,3 +9,5 @@
 ### [personal-1.3] - configure routes in vue.
 
 ### [personal-1.4] - added import.meta.env.BASE_URL in the createWebHistory()
+
+### [personal-1.5] - updated the application to use bootstrap and router-link to navigate pages.
