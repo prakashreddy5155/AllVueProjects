@@ -1,0 +1,9 @@
+<template>
+
+  <ul>
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+  </ul>
+
+</template>
