@@ -4,7 +4,7 @@ import Contact from "@/components/Home/Contact.vue";
 import ProductsList from "@/components/Product/ProductsList.vue";
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes:[
     {path:"/",component:Home},
     {path:'/contact',component:Contact},

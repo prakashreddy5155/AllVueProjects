@@ -7,3 +7,5 @@
 ### [personal-1.2] - configure router related files in vue
 
 ### [personal-1.3] - configure routes in vue.
+
+### [personal-1.4] - added import.meta.env.BASE_URL in the createWebHistory()
