@@ -11,8 +11,7 @@ const router = createRouter({
     {path:'/contact',component:Contact},
     {path:'/productsList',component:ProductsList},
     {path:'/product',component:ProductDetail},
-    {path:'/product/:productId',component:ProductDetail},
-    {path:'/product/:productId/:categoryId',component:ProductDetail}
+    {path:'/product/:productId/:categoryId?',component:ProductDetail},
   ]
 });
 
