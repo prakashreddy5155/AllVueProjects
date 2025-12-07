@@ -18,15 +18,14 @@
             Product
           </router-link>
           <ul class="dropdown-menu">
-            <li><router-link class="dropdown-item" :to="{name:'productList'}">Product List</router-link></li>
+            <li><router-link class="dropdown-item" :to="{name:'productsList'}">Product List</router-link></li>
             <li><hr class="dropdown-divider"></li>
             <li><router-link class="dropdown-item" :to="{name:'product'}">Product Detail</router-link></li>
           </ul>
         </li>
       </ul>
       <form class="d-flex" role="search" v-on:submit.prevent="handleForm()">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="inputData" />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <router-link  class="nav-link" to="/login"> Login</router-link>
       </form>
     </div>
   </div>
@@ -36,8 +35,4 @@
 import {ref} from 'vue';
 
 const inputData = ref('');
-function handleForm()
-{
-  console.log(inputData.value);
-}
 </script>

@@ -29,3 +29,7 @@
 ### [personal-2.3] - creating a back button through which we can move the user to the previous page user visited when clicked on that button.
 
 ### [personal-2.3] - added back button in all the pages
+
+### [personal-2.4] - Global Navigation guard
+
+### [personal-2.5] - each route based navigation guard, for a specific component access also we can be able to restrict that using beforeEnter : (to,from) => { } and based on the conditions we can eb able to restrict that.

@@ -98,3 +98,23 @@ const router = createRouter({
 
 ### [personal-2.2] - moving the user to another page using useRouter() programmatically, through this we can programmatically move the user to another page when user clicks on a button.
 
+### [personal-2.3] - added back button in all the pages
+
+### [personal-2.4] - Global Navigation guard 
+#### this is helpful for preventing the navigation to other components before login. Even if user knows the url and tries to navigate by typing the endpoint directly, in that case we can prevent the user using this global Navigation guard.
+
+```javascript
+
+
+router.beforeEach((to,from)=> {
+
+  return true // or return false
+})
+
+// here to tells from which endpoint we are coming and from tells to which endpoint we are trying to navigate to, and that arrow function should have to return true, for every route change this beforeEach route change this beforeEach method runs and from that we can check if everything is correct or not.
+
+```
+
+### [personal-2.5] - each route based navigation guard, for a specific component access also we can be able to restrict that using beforeEnter : (to,from) => { } and based on the conditions we can eb able to restrict that.
+
+#### to and from are objects which has name property and all from which we check to.name === 'login' or a different condition to restrict the user.
