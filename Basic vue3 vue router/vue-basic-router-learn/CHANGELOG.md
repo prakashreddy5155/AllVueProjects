@@ -13,3 +13,5 @@
 ### [personal-1.5] - updated the application to use bootstrap and router-link to navigate pages.
 
 ### [personal-1.6] - known how to make the routing parameter optional and still make it work well 
+
+### [personal-1.7] - adding the dynamic links when clicked on the productId's inside the productList component 
