@@ -17,3 +17,5 @@
 ### [personal-1.7] - adding the dynamic links when clicked on the productId's inside the productList component 
 
 ### [personal-1.8] - created the name property in the route and using that name property in the to parameter of router-link instead of hardcoding the parameter name there.
+
+### [personal-1.9] - redirecting the user to the current working endpoint if the user uses the endpoint which the application was having before.

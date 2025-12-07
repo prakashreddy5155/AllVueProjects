@@ -87,3 +87,6 @@ const router = createRouter({
 
  // if the name changes then we need to change the name that we are using.
 ```
+
+### [personal-1.9] - redirecting the user to the current working endpoint if the user uses the endpoint which the application was having before.
+#### lets say our application has /contact endpoint before, and may be the user is used to entering that in the URL of his browser like domainName/contact but now lets say we have changed that to /contactUs so then if user uses /contact in the browser then it wont load and shows this warning in the browser main.js:7 [Vue Router warn]: No match found for location with path "/contact", now since we need to redirect the used to user to the new endpoint so we dont lose the customer, so we need to create one new route in the router {path:"/contact", redirect: { name : 'contact'}}  or we can use path:"/contact", redirect: { path : "/contactUs"}} like that.
