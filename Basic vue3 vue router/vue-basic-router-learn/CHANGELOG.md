@@ -19,3 +19,9 @@
 ### [personal-1.8] - created the name property in the route and using that name property in the to parameter of router-link instead of hardcoding the parameter name there.
 
 ### [personal-1.9] - redirecting the user to the current working endpoint if the user uses the endpoint which the application was having before.
+
+### [personal-2.0] - showing the user the default Page Not Found when user navigates to a endpoint in the application which is not present.
+
+### [personal-2.1] - navigating to the other page in the appplicatin when clicked on a button.
+
+### [personal-2.2] - created the navigation to the another page in the application when clicked on a button.

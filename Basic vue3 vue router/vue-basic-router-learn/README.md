@@ -90,3 +90,10 @@ const router = createRouter({
 
 ### [personal-1.9] - redirecting the user to the current working endpoint if the user uses the endpoint which the application was having before.
 #### lets say our application has /contact endpoint before, and may be the user is used to entering that in the URL of his browser like domainName/contact but now lets say we have changed that to /contactUs so then if user uses /contact in the browser then it wont load and shows this warning in the browser main.js:7 [Vue Router warn]: No match found for location with path "/contact", now since we need to redirect the used to user to the new endpoint so we dont lose the customer, so we need to create one new route in the router {path:"/contact", redirect: { name : 'contact'}}  or we can use path:"/contact", redirect: { path : "/contactUs"}} like that.
+
+### [NOTE:] - useRouter() and useRoute() are two different things in vue.js useRoute is used for retrieving the url parameters  but this useRouter() is used to programmatically push the user to another page based on his interaction with the web application.
+
+### [personal-2.0] - showing the user the default Page Not Found when user navigates to a endpoint in the application which is not present.
+####  inorder to show the user the default page when user navigates to a page that is not exists then we need to use a route { path: "/:catchAll(.*)",component: componentName}
+
+### [personal-2.2] - moving the user to another page using useRouter() programmatically, through this we can programmatically move the user to another page when user clicks on a button.
