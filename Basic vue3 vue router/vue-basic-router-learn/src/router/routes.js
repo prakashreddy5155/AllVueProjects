@@ -28,8 +28,8 @@ const router = createRouter({
     {path:'/product/:productId/:categoryId?',component:ProductDetail,name:'productWithProduct'},
     {path:'/login',component:Login, name:'login'},
     {path:'/:catchAll(.*)',component:PageNotFound} // catches all the other crawling to show the PageNotFound component
-    
-  ]
+  ],
+  linkActiveClass:'my-active'
 });
 
 // router.beforeEach((to,from)=> {

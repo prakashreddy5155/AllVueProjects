@@ -118,3 +118,6 @@ router.beforeEach((to,from)=> {
 ### [personal-2.5] - each route based navigation guard, for a specific component access also we can be able to restrict that using beforeEnter : (to,from) => { } and based on the conditions we can eb able to restrict that.
 
 #### to and from are objects which has name property and all from which we check to.name === 'login' or a different condition to restrict the user.
+
+### [personal-2.6] - highligting the route selected by the user using css and its ways.
+#### when a specific route is current active, then vue router adds a specific class to it but we want to add one specific class through which we can highlight the route that is selected then we can import that either globally or locally in the App.vue, create a  <style> </style> and create a class and decorate  it with some styling or else create one folder in the src named style and create a css file there named main.css and then, import that css file in the main.js where we mount into the html and then you should use one tag named   linkActiveClass:'my-active' here my-active is the class name of the css component but you can create with anyname and use there.

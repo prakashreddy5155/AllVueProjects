@@ -33,3 +33,5 @@
 ### [personal-2.4] - Global Navigation guard
 
 ### [personal-2.5] - each route based navigation guard, for a specific component access also we can be able to restrict that using beforeEnter : (to,from) => { } and based on the conditions we can eb able to restrict that.
+
+### [personal-2.6] - highligting the route selected by the user using css and its ways.
