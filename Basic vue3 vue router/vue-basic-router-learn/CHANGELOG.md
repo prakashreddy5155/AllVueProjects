@@ -15,3 +15,5 @@
 ### [personal-1.6] - known how to make the routing parameter optional and still make it work well 
 
 ### [personal-1.7] - adding the dynamic links when clicked on the productId's inside the productList component 
+
+### [personal-1.8] - created the name property in the route and using that name property in the to parameter of router-link instead of hardcoding the parameter name there.

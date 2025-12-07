@@ -7,11 +7,11 @@ import ProductDetail from "@/components/Product/ProductDetail.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes:[
-    {path:"/",component:Home},
-    {path:'/contact',component:Contact},
-    {path:'/productsList',component:ProductsList},
-    {path:'/product',component:ProductDetail},
-    {path:'/product/:productId/:categoryId?',component:ProductDetail},
+    {path:"/",component:Home,name:'home'},
+    {path:'/contact',component:Contact,name:'contact'},
+    {path:'/productsList',component:ProductsList,name:'productList'},
+    {path:'/product',component:ProductDetail,name:'product'},
+    {path:'/product/:productId/:categoryId?',component:ProductDetail,name:'productWithProduct'},
   ]
 });
 

@@ -65,3 +65,25 @@ export default router;
 #### if you see, here we have which components like Home, Contact, ProductsList and ProductDetail and same productDetails when we navigate to a different endpoint
 
 #### later we have created the routes but inorder to naviagate to those routes we can navigate through the URL but usually users dont navigate that way right?, because all are not knowledgable enough to route to the correct pages and they dont even know which routes are present in our app, so we need to route to the specific application based on links, for links instead of <a href=""> </a> we use, <router-link to=""> </router-link> so that Is why in the navbar instead of anchor tags I have used <router-links> </router-links>
+
+### [personal-1.8] - till before we were hardcoding but with this code we are not hardcoding the relative path of the project endpoint, we are using the object, lets say in the future if the endpoint changes then also we dont have to change anything because we are referring to the endpoint with the name property 
+
+```javascript
+
+<router-link class="nav-link" :to="{name:'contact'}">Contact</router-link> 
+// using the name property to point to the contact endpoint.
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes:[
+    {path:"/",component:Home,name:'home'},
+    {path:'/contact',component:Contact,name:'contact'},
+    {path:'/productsList',component:ProductsList,name:'productList'},
+    {path:'/product',component:ProductDetail,name:'product'},
+    {path:'/product/:productId/:categoryId?',component:ProductDetail,name:'productWithProduct'},
+  ]
+});
+
+ // The contact endpoint is /contact but in the future even if the endpoint changes to /contactUs then also we dont have to do change in all the places because we are referring to the endpoint with the name which is present in the route.
+
+ // if the name changes then we need to change the name that we are using.
+```

@@ -2,7 +2,7 @@
 
   <ul>
     <li v-for="product in products">
-      <router-link :to="`product/${product.id}`"> {{  product.name }} </router-link>
+      <router-link :to="{name:'productWithProduct',params:{productId:product.id,categoryId:19}}"> {{  product.name }} </router-link>
     </li>
   </ul>
 
