@@ -1,7 +1,11 @@
 <script setup></script>
 
 <template>
-  Helloworld
+  Helloworld <br>
+
+  <RouterView> </RouterView>
 </template>
+
+
 
 <style scoped></style>
