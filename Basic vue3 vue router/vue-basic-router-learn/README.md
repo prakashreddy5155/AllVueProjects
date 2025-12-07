@@ -97,3 +97,4 @@ const router = createRouter({
 ####  inorder to show the user the default page when user navigates to a page that is not exists then we need to use a route { path: "/:catchAll(.*)",component: componentName}
 
 ### [personal-2.2] - moving the user to another page using useRouter() programmatically, through this we can programmatically move the user to another page when user clicks on a button.
+

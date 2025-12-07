@@ -25,3 +25,7 @@
 ### [personal-2.1] - navigating to the other page in the appplicatin when clicked on a button.
 
 ### [personal-2.2] - created the navigation to the another page in the application when clicked on a button.
+
+### [personal-2.3] - creating a back button through which we can move the user to the previous page user visited when clicked on that button.
+
+### [personal-2.3] - added back button in all the pages

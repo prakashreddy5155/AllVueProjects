@@ -17,11 +17,17 @@
 
   </div>
 
+    <div>
+    <button @click="goToPreviousPage"> Back </button>
+  </div>
+
 </template>
 
 <script setup>
 
 import { useRoute } from 'vue-router';
+import useNavigateBack from '@/composibles/useNavigateBack';
+const {goToPreviousPage}  = useNavigateBack();
 
 const router = useRoute();
 console.log(router.params)

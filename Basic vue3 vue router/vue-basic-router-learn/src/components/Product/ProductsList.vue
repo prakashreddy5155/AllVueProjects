@@ -6,10 +6,16 @@
     </li>
   </ul>
 
+  <div>
+    <button @click="goToPreviousPage"> Back </button>
+  </div>
 </template>
 
 <script setup>
 import {reactive} from 'vue';
+import useNavigateBack from '@/composibles/useNavigateBack';
+const {goToPreviousPage}  = useNavigateBack();
+
 
 const products = reactive([
   {id:1,name:"product1"},
