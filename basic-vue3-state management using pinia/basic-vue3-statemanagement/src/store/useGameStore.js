@@ -9,19 +9,20 @@ export const gameStore = defineStore('game',{
     maxDefence:10
   }),
   getters:{
+
+  },
+  actions:{
     getIncreasedScore()
     {
       let attack =  Math.floor(Math.random() * this.maxAttack);
       console.log(attack);
-      attack = this.store + attack
-      return attack;
+      this.score += attack
     },
     getDecreasedScore()
     {
       let defence =  Math.floor(Math.random() * this.maxDefence);
       console.log(defence);
-      defence = this.score - defence;
-      return defence;
+      this.score -= defence;
     }
   }
 });

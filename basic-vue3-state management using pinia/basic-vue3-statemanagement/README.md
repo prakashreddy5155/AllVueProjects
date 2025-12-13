@@ -65,3 +65,47 @@ state : ()=> ({
 
 ```
 #### so it updates the score, the next time we click on that again, then the getter checks if the dependencies changed or not, yes, the score value is updated, and since the score value is updated so it re-computes that and works. but this is not recommended way since we are anyhow returning the data and we can actually mutate the state using actions itself. lets see that in next commit.
+
+### [personal-1.4] - here I have changed that from getters to Actions, because In pinia actions can be able to mutate the store state data and thus helps us in reducing the extra code and the code works as expected.
+
+#### firstly changed to method like syntax now using () for calling that since it requires.
+```javascript
+
+  const store = gameStore();
+  function handleIncrease()
+  {
+    store.getIncreasedScore();
+  }
+
+  function handleDecrease()
+  {
+    store.getDecreasedScore();
+  }
+  function handleRandom()
+  {
+    Math.random() > 0.5 ? handleIncrease() : handleDecrease();
+  }
+
+```
+
+#### and also removed store.score = because this can directly mutate the data in pinia. actions can directly mutate the data in pinia. in vuex, they can't we would have to dispatch an action and from action after doing asynchronous tasks we commmit a mutation and mutation changes the state. we can directly change in vue2 from action but vue throws warning.
+
+#### Now action is updated to directly change the state's  score. 
+```javascript
+
+  actions:{
+    getIncreasedScore()
+    {
+      let attack =  Math.floor(Math.random() * this.maxAttack);
+      console.log(attack);
+      this.score += attack
+    },
+    getDecreasedScore()
+    {
+      let defence =  Math.floor(Math.random() * this.maxDefence);
+      console.log(defence);
+      this.score -= defence;
+    }
+  }
+
+```

@@ -25,12 +25,12 @@ import { gameStore } from '../store/useGameStore';
   const store = gameStore();
   function handleIncrease()
   {
-    store.score = store.getIncreasedScore;
+    store.getIncreasedScore();
   }
 
   function handleDecrease()
   {
-    store.score = store.getDecreasedScore;
+    store.getDecreasedScore();
   }
   function handleRandom()
   {
