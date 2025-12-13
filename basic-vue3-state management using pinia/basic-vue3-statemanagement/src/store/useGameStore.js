@@ -13,12 +13,14 @@ export const gameStore = defineStore('game',{
     {
       let attack =  Math.floor(Math.random() * this.maxAttack);
       console.log(attack);
+      attack = this.store + attack
       return attack;
     },
     getDecreasedScore()
     {
       let defence =  Math.floor(Math.random() * this.maxDefence);
       console.log(defence);
+      defence = this.score - defence;
       return defence;
     }
   }

@@ -23,3 +23,45 @@
 ```
 
 #### if you have something like above code where if you see in the getters for getIncresedScore(), the first time it gets executed and caches the data and 2nd time when it checks 
+
+### [personal-1.3] - To fix this issue we either have to add a dependency in computed property that changes everytime or its actually better to use actions, since actions are specifically designed that way which runs everytime.
+#### currently I have changed to use 
+```javascript
+
+state : ()=> ({
+    score: 0,
+    maxScore:100,
+    maxAttack:30,
+    maxDefence:10
+  }),
+  getters:{
+    getIncreasedScore()
+    {
+      let attack =  Math.floor(Math.random() * this.maxAttack);
+      console.log(attack);
+      attack = this.store + attack
+      return attack;
+    },
+    getDecreasedScore()
+    {
+      let defence =  Math.floor(Math.random() * this.maxDefence);
+      console.log(defence);
+      defence = this.score - defence;
+      return defence;
+    }
+  }
+
+```
+
+#### if you see here this has score which is another dependency variable which gets changed, so the computed property re-runs everytime. here dependency variable means state variable. 
+####  lets see how is it working: 
+#### when we use the state variable score for the first time computed property runs and caches the data. and from this getIncreasedScore() getter we return the data and in the application we are setting the data to the score 
+```javascript 
+
+  function handleIncrease()
+  {
+    store.score = store.getIncreasedScore;
+  }
+
+```
+#### so it updates the score, the next time we click on that again, then the getter checks if the dependencies changed or not, yes, the score value is updated, and since the score value is updated so it re-computes that and works. but this is not recommended way since we are anyhow returning the data and we can actually mutate the state using actions itself. lets see that in next commit.
